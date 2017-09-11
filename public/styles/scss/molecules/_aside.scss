@@ -1,0 +1,16 @@
+.email-btn {
+    background: transparent;
+    color: #555;
+    width: 100px;
+    height: 40px;
+    border: 2px solid #b2b2b2;
+    cursor: pointer;
+    -webkit-transition: all 0.3s ease;
+    -moz-transition: all 0.3s ease;
+    transition: all 0.3s ease;
+
+    &:hover {
+        color: #262626;
+        border-color: #262626;
+    }
+}

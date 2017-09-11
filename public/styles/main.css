@@ -1,0 +1,974 @@
+@font-face {
+    font-family: monaLisa;
+    src: url('../mona_lisa_solid_itc_tt.ttf');
+}
+
+* {
+    box-sizing: border-box;
+}
+
+h1, h2, h3, h4 {
+    margin: 0;
+}
+
+body {
+    font-family: 'Lato', sans-serif;    
+    position: relative;
+    background: #f2f2f2;
+    min-height: 100vh;
+    min-width: 320px;
+    margin: 0;
+    overflow-x: hidden;
+}
+
+/* * * * * * * * * * * * * * * * * * */
+/*     BANNER  (Base / Mobile)
+/* * * * * * * * * * * * * * * * * * */
+
+header {
+    /* background: url('/assets/images/photo-nic-co-uk-nic-117915-compressor.jpg') center;
+    background-size: cover;
+    background-repeat: no-repeat; */
+    position: relative;
+    color: #262626;
+    width: 100%;
+    min-height: 90vh;
+    z-index: 1;
+    border: 1px solid white;
+    -webkit-transition: all 0.3s ease;
+    -moz-transition: all 0.3s ease;
+    transition: all 0.3s ease;
+}
+
+.banner {
+    background: #262626;
+    position: relative;
+    min-height: 80px;
+    box-shadow: 0 0 25px 1px rgba(0,0,0,0.4);
+}
+
+.title {
+    position: relative;
+    font-family: 'Italianno', cursive;
+    font-size: 26px;
+    float: left;
+    line-height: 80px;
+    padding-left: 20px;
+    z-index: 1;
+    -webkit-transition: all 0.3s ease;
+    -moz-transition: all 0.3s ease;
+    transition: all 0.3s ease;
+}
+
+.title a {
+    color: white;
+    text-decoration: none;
+}
+
+/* * * * * * * * * * * * * * * * * * */
+/*    Burger Icon  (Base / Mobile)
+/* * * * * * * * * * * * * * * * * * */
+
+.burger-btn {
+    position: absolute;
+    background: transparent;
+    border: none;
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
+    top: 50%;
+    right: 30px;
+    transform: translate(0, -50%);
+    z-index: 1;
+}
+
+.burger-icon {
+    position: absolute;
+    width: 30px;
+    height: 4px;
+    background: #f2f2f2;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.burger-icon::before,
+.burger-icon::after {
+    position: absolute;
+    content: '';
+    background: #f2f2f2;
+    width: 30px;
+    height: 4px;
+    left: 50%;
+    transform: translate(-50%, 0);
+}
+
+.burger-icon::before {
+    top: -10px;
+}
+
+.burger-icon::after {
+    top: 10px;
+}
+
+.burger-icon,
+.burger-icon::before,
+.burger-icon::after {
+    background: #8C6454;
+    -webkit-transition: all 0.2s ease-in-out;
+    -moz-transition: all 0.2s ease-in-out;
+    transition: all 0.2s ease-in-out;
+}
+
+.burger-btn:hover .burger-icon,
+.burger-btn:hover .burger-icon::before,
+.burger-btn:hover .burger-icon::after {
+    background: white;
+}
+
+.burger-icon.expand,
+.burger-btn:hover .burger-icon.expand  {
+    background: transparent;
+}
+
+
+.burger-icon.expand::before{
+    left: 0;
+    top: 50%;
+    transform: rotate(45deg);
+}
+
+.burger-icon.expand::after {
+    left: 0;
+    top: 50%;
+    transform: rotate(-45deg);
+}
+
+/* * * * * * * * * * * * * * * * * * */
+/*       NAV  (Base / Mobile)
+/* * * * * * * * * * * * * * * * * * */
+
+.nav {
+    position: relative;
+    display: block;
+    height: 80px;
+}
+
+
+.nav ul {
+    position: absolute;
+    display: none;
+    font-size: 24px;
+    list-style: none;
+    background: #333;
+    width: 100%;
+    height: 0;
+    top: 100%;
+    padding: 0;
+    margin: 0;
+    overflow: hidden;
+    z-index: 10;
+    -webkit-transition: all 0.2s ease-in-out;
+    -moz-transition: all 0.2s ease-in-out;
+    transition: all 0.2s ease-in-out;
+}
+
+
+
+.nav a {
+    display: inline-block;
+    color: white;
+    width: 140px;
+    text-decoration: none;
+    text-align: center;
+    -webkit-transition: all 0.7s ease-in-out, color 0.3s ease;
+    -moz-transition: all 0.7s ease-in-out, color 0.3s ease;
+    transition: all 0.7s ease-in-out, color 0.3s ease;
+}
+
+.nav li {
+    cursor: pointer;
+}
+
+.nav .social-links li:hover a {
+    color: #262626;
+    color: #8C6454;
+}
+
+.nav .menu-list li:hover a {
+    color: #b2b2b2;
+    color: #8C6454;
+    /* background: rgba(241, 132, 132, 0.1); */
+}
+
+/* * * * * * * * * * * * * * * * * * */
+/* Mobile Menu EXPANDED (Base / Mobile)
+/* * * * * * * * * * * * * * * * * * */
+
+
+.menu-list {
+    box-shadow: 0 0 25px 2px rgba(0,0,0,0.4);
+    text-align: center;
+}
+
+.nav.show .menu-list {
+    display: block;
+}
+
+.nav.expand .menu-list {
+    height: 200px;
+    padding-top: 30px;
+}
+.nav.expand .menu-list li {
+    padding-bottom: 10px;
+}
+
+.intro-section.expand {
+    margin-top: 200px;
+}
+
+ul.social-links.expand {
+    margin-top: 200px;
+}
+
+/* * * * * * * * * * * * * * * * * * */
+/*   Social Icons - nav (Base / Mobile)
+/* * * * * * * * * * * * * * * * * * */
+
+ul.social-links {
+    background: unset;
+    list-style: none;
+    height: 60px;
+    padding: 0;
+    margin: 0;
+}
+
+.social-links a {
+    width: 80px;
+}
+
+.social-links .fa {
+    font-size: 18px;
+    color: black;
+    -webkit-transition: all 0.5s ease-in-out;
+    -moz-transition: all 0.5s ease-in-out;
+    transition: all 0.5s ease-in-out;
+}
+.fb-icon:hover .fa {
+    color: #3b5998;
+    color: #8C6454;
+}
+
+.twitter-icon:hover .fa {
+    color: #1da1f3;
+    color: #8C6454;
+}
+
+.linkd-icon:hover .fa {
+    color: #0077B5;
+    color: #8C6454;
+}
+
+.insta-icon:hover .fa {
+    color: #c32aa3;
+    color: #8C6454;
+}
+
+
+
+/* * * * * * * * * * * * * * * * * * */
+/* Header INTRO section  (Base / Mobile)                  
+/* * * * * * * * * * * * * * * * * * */
+
+.intro-section {
+    padding-top: 80px;
+    padding-bottom: 80px;
+    -webkit-transition: all 0.3s ease;
+    -moz-transition: all 0.3s ease;
+    transition: all 0.3s ease;
+}
+
+.intro-title {
+    font-family: 'Tangerine', cursive;
+    font-size: 50px;
+    text-align: center;
+}
+
+.provide-list {
+    display: block;
+    text-align: center;
+    padding-left: 0;
+    margin-left: 0;
+    padding-bottom: 30px;
+}
+
+.provide-list li {
+    font-size: 13px;
+}
+
+.prof-wrap {
+    width: 100%;
+    max-width: 340px;
+    margin: 0 auto;
+    margin-bottom: 10px;
+}
+
+label[for="prof-img"] {
+    float: right;
+}
+
+.prof-img {
+    width: 100%;
+    height: auto;
+    border: 5px solid grey;
+    box-shadow: 0 0 25px 1px rgba(0,0,0,0.4);
+}
+
+.intro-inner-wrap {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.intro-overview {
+    max-width: 380px;
+    margin: 80px auto 0;
+    -webkit-transition: all 0.2s ease;
+    -moz-transition: all 0.2s ease;
+    transition: all 0.2s ease;
+}
+
+.overview {
+    padding-left: 20px;
+    margin-left: 5px;
+    margin-bottom: 20px;
+    border-left: 3px solid #b2b2b2;
+    border-left: 3px solid #555;
+}
+
+.aside-hr {
+    clear: both;
+    width: 90%;
+    margin: 0 auto;
+    border-bottom: 1px solid rgba(0,0,0,0.1);
+}
+
+.intro-aside {
+    clear: both;
+}
+
+.aside-container {
+    color: #555;
+    width: 300px;
+    margin: 20px auto;
+    text-align: center;
+}
+
+.faded {
+    font-weight: lighter;
+    color: #b2b2b2;
+}
+
+.email-btn {
+    background: transparent;
+    color: #555;
+    width: 100px;
+    height: 40px;
+    border: 2px solid #b2b2b2;
+    cursor: pointer;
+    -webkit-transition: all 0.3s ease;
+    -moz-transition: all 0.3s ease;
+    transition: all 0.3s ease;
+}
+
+.email-btn:hover {
+    color: #262626;
+    border-color: #262626;
+}
+
+
+
+/* * * * * * * * * * * * * * * * * * */
+/*    MAIN    (Base / Mobile)                  
+/* * * * * * * * * * * * * * * * * * */
+
+.container {
+    position: relative;
+    color: #262626;
+    /* background: linear-gradient(180deg, #f2f2f2, #8C6454); */
+    z-index: 1;
+    width: 95%;
+    min-height: 500px;
+    margin: 0 auto;
+    padding-top: 50px;
+    text-align: center;
+    border: 1px solid black;
+}
+
+.provide-list {
+    font-size: 14px;
+    list-style: none;
+}
+
+.provide-list li {
+    position: relative;
+    display: inline-block;
+    margin-right: 15px;
+}
+
+.provide-list li:not(:last-of-type):after {
+    content: '';
+    position: absolute;
+    background: #262626;
+    width: 2px;
+    height: 15px;
+    right: -10px;
+    top: 50%;
+    transform: translate(0, -50%);
+}
+
+
+/* * * * * * * * * * * * * * * * * * */
+/*    Experience  (Base / Mobile)                 
+/* * * * * * * * * * * * * * * * * * */
+#experience {
+    width: 100%;
+    min-height: 300px;
+    margin: 50px 0;
+    padding: 20px 0;
+    border: 1px solid blue;
+}
+
+
+/* * * * * * * * * * * * * * * * * * */
+/*    Service  (Base / Mobile)                 
+/* * * * * * * * * * * * * * * * * * */
+#services {
+    width: 100%;
+    height: 300px;
+    margin: 50px 0;
+    border: 1px solid blueviolet;
+}
+
+
+/* * * * * * * * * * * * * * * * * * */
+/*    Instagram Feed   (Base / Mobile)                 
+/* * * * * * * * * * * * * * * * * * */
+
+.insta-content {
+    font-size: 0;
+}
+
+.insta-img-wrap {
+    background: #262626;
+    display: inline-block;
+    position: relative;
+    margin: 0 auto;
+    border: 2px solid #262626;
+    cursor: pointer;
+    overflow: hidden;
+}
+
+.insta-link {
+    position: relative;
+    display: inline-block;
+}
+
+.insta-img {
+    position: absolute;
+    height: auto;
+    top: 50%;
+    left: 0;
+    transform: translate(0, -50%);
+}
+
+.likes {
+    position: absolute;
+    top: -100px;
+    left: 50%;
+    z-index: 3;
+    transform: translate(-50%, 0);
+}
+
+.caption {
+    position: absolute;
+    bottom: -100%;
+    left: 50%;
+    z-index: 3;
+    transform: translate(-50%, 0);
+}
+
+.likes,
+.caption,
+.insta-img-wrap::before  {
+    color: white;
+    font-size: 16px;
+    -webkit-transition: all 0.8s ease;
+    -moz-transition: all 0.8s ease;
+    transition: all 0.8s ease;
+}
+
+.insta-img-wrap::before {
+    position: absolute;
+    content: '';
+    background: transparent;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+}
+
+.insta-img-wrap:hover::before {
+    background: rgba(0,0,0,0.4);
+}
+
+.insta-img-wrap:hover .likes {
+    top: 20px;
+}
+
+.insta-img-wrap:hover .caption {
+    bottom: 10px;
+}
+
+
+
+
+.img-banner {
+    clear: both;
+    background: url("/assets/images/corks-compressor.jpg");
+    background-size: cover;
+    width: 100%;
+    height: 300px;
+}
+
+/* * * * * * * * * * * * * * * * * * */
+/*   Instagram Feed  (Desktop / Tablet)                
+/* * * * * * * * * * * * * * * * * * */
+.insta-img-wrap {
+    display: inline-block;
+    width: 290px;
+    height: 290px;
+    vertical-align: top;
+    
+}
+
+.insta-img {
+    width: 290px;
+    height: 290px;
+}
+
+
+
+/* * * * * * * * * * * * * * * * * * */
+/*    FOOTER    (Base / Mobile)                 
+/* * * * * * * * * * * * * * * * * * */
+.main-footer {
+    position: relative;
+    color: white;
+    background: #262626;
+    width: 100%;
+    min-height: 300px;
+    /* margin-top: 50px; */
+}
+
+.f-social-links ul {
+    font-size: 22px;
+    list-style: none;
+    padding: 0;
+    padding-top: 20px;
+    margin: 0;
+    text-align: center;
+}
+
+.f-social-links li {
+    position: relative;
+    display: inline-block;
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    border: 2px solid white;
+}
+
+.f-social-links li:not(:first-of-type) {
+    margin-left: 10px;
+}
+
+.f-social-links a {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 35px;
+    height: 35px;
+    transform: translate(-50%, -50%);
+}
+
+.f-social-links a {
+    color: white;
+}
+
+.f-social-links .fa {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.f-social-links li,
+.f-social-links .fa {
+    -webkit-transition: all 0.4s ease;
+    -moz-transition: all 0.4s ease;
+    transition: all 0.4s ease;
+}
+
+
+.f-social-links  .fb:hover,
+.f-social-links  .fb-icon:hover .fa {
+    color: white;
+    background: #3B5898;
+    border-color: #3b5998;
+    /* border-color: #555; */
+}
+
+.f-social-links  .twitter:hover,
+.f-social-links  .twitter-icon:hover .fa {
+    color: white;
+    background: #1da1f3;
+    border-color: #1da1f3;
+    /* border-color: #555; */
+}
+
+.f-social-links  .linkd:hover,
+.f-social-links  .linkd-icon:hover .fa {
+    color: white;
+    background: #0077B5;
+    border-color: #0077B5;
+    /* border-color: #555; */
+}
+
+.f-social-links  .insta:hover,
+.f-social-links  .insta-icon:hover .fa {
+    color: white;
+    background: #c32aa3;
+    border-color: #c32aa3;
+    /* border-color: #555; */
+}
+
+.bottom {
+    font-size: 13px;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 40px;
+    padding: 0 20px;
+}
+
+.email {
+    float: right;
+}
+
+
+/*====================================*/
+/*          Iphone 6 and up           */
+/*====================================*/
+@media only screen and (min-width: 375px) {
+    .title {
+        font-size: 36px;
+    }
+    
+   
+
+    .social-links .fa {
+        font-size: 20px;
+    }
+}
+
+
+/*====================================*/
+/*          Landscape +               */
+/*====================================*/
+@media only screen and (min-width: 415px) {
+    .provide-list li {
+        font-size: 16px;
+    } 
+
+}
+
+
+@media only screen and (min-width: 555px) {
+    .prof-wrap {
+        float: left;
+        width: 300px;
+    }
+
+    .intro-overview {
+        float: left;
+        width: 39%;
+        margin-top: 0;
+        margin-right: 5%;
+        padding-left: 20px;
+    }
+}
+
+@media only screen and (min-width: 585px) {
+    .intro-overview {
+        width: 42%;
+    }
+}
+@media only screen and (min-width: 610px) {
+    .intro-overview {
+        width: 44%;
+    }
+}
+@media only screen and (min-width: 640px) {
+    .intro-overview {
+        width: 46%;
+    }
+}
+@media only screen and (min-width: 670px) {
+    .intro-overview {
+        width: 48%;
+    }
+}
+@media only screen and (min-width: 690px) {
+    .intro-overview {
+        width: 50%;
+    }
+}
+
+/*====================================*/
+/*        Landscape and Below         */
+/*====================================*/
+@media only screen and (max-width: 736px) {
+    
+    /* * * * * * * * * * * * * * * * * * */
+    /*   Social icons MOBILE  (Base / Mobile)
+    /* * * * * * * * * * * * * * * * * * */
+     ul.social-links {
+         display: unset;
+         position: relative;
+         float: left;
+         border-bottom: 1px solid #262626;
+     }
+     
+     .social-links a {
+         width: 25%;
+         line-height: 60px;
+         float: left;
+     }
+ 
+     .social-links a:hover {
+         background: transparent;
+     } 
+     
+     .social-links .fa {
+         color: #262626;
+     }   
+ 
+     .social-links a:hover .fa {
+         transform: scale(1.3);
+     }
+ }
+
+/*====================================*/
+/*        DESKTOP & TABLETS           */
+/*====================================*/
+@media only screen and (min-width: 737px) {
+        .nav {
+            height: unset;
+        }
+
+        .nav::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 0;
+            width: 100%;
+            height: 1px;
+            background: rgba(100,100,100,0.2);
+        }
+
+        .nav ul {
+            position: relative;
+            display: block;
+            background: transparent;
+            float: right;
+            width: unset;
+            height: 80px;
+            line-height: 80px;
+            -webkit-transition: all 0.01s ease-in-out;
+            -moz-transition: all 0.01s ease-in-out;
+            transition: all 0.01s ease-in-out;
+        }
+
+        .nav > div {
+            overflow: auto;
+        }
+
+        .menu-list li {
+            /* display: inline-block; */
+            float: left;
+            width: 33.3%;
+        }
+
+        ul.menu-list {
+            width: 100vw;
+        }
+
+        .menu-list a {
+            width: 100%;
+        }
+
+        .burger-btn {
+            display: none;
+        }
+
+        .menu-list {
+            box-shadow: none;
+        }
+
+        .social-links li {
+            display: inline-block; 
+            float: right;
+        }
+
+        .social-links .fa {
+            color: white;
+        } 
+
+        /* * * * * * * * * * * * * * * * * * */
+        /* Header INTRO section (Desktop / Tablet)                 
+        /* * * * * * * * * * * * * * * * * * */
+
+        .intro-section {
+            padding-top: 50px;
+            max-width: 1600px;
+            margin: 0 auto;
+        }
+
+        .intro-title {
+            font-size: 60px;
+        }
+
+        .provide-list li {
+            font-size: 18px;
+        }
+
+        .img-banner {
+            background-attachment: fixed;
+        }
+
+
+        /* * * * * * * * * * * * * * * * * * */
+        /*   Experience  (Desktop / Tablet)                
+        /* * * * * * * * * * * * * * * * * * */
+
+        .exp-container {
+            height: 300px;
+            width: 90%;
+            margin: 0 auto;
+            border: 1px solid black;
+        }
+
+        .box-left {
+            width: 50%;
+            height: 100%;
+            float: left;
+            border: 1px solid black;
+        }
+
+        .box-right {
+            width: 50%;
+            height: 100%;
+            float: right;
+            border: 1px solid black;
+        }
+
+        /* * * * * * * * * * * * * * * * * * */
+        /*   Instagram Feed  (Desktop / Tablet)                
+        /* * * * * * * * * * * * * * * * * * */
+        /* .insta-img-wrap {
+            display: inline-block;
+            width: 290px;
+            height: 290px;
+            vertical-align: top;
+            
+        }
+
+        .insta-img {
+            width: 290px;
+            height: 290px;
+        } */
+}
+
+
+
+
+@media only screen and (min-width: 900px) {
+    .intro-main {
+        float: left;
+        width: 80%;
+        padding-bottom: 20px;
+    }
+
+    .aside-hr {
+        display: none;
+    }
+
+    .intro-aside {
+        clear: unset;
+        float: right;
+        width: 20%;
+        height: 480px;
+        padding-left: 10px;
+        border-left: 1px solid rgba(0,0,0,0.1);
+    }
+
+    .aside-container {
+        width: 200px;
+        margin: 20px auto;
+        text-align: left;
+    }
+    
+    .aside-container p {
+        width: 125px;
+    }
+}
+
+@media only screen and (min-width: 1000px) {
+    header {
+        background-size: cover;
+        background-position-y: 35%;
+    }
+
+    .intro-overview {
+        width: 450px;
+        max-width: unset;
+    }
+
+}
+
+.hidden {
+    display: none;
+}
+
+
+/* COLOR pallete */
+
+/* #262626 -- Dark blue/gray */
+/* #f2f2f2 -- light grey/white */
+/* #BFBFBF -- Grey */
+/* #B2B2B2 -- lighter grey */
+/* #8C6454 -- red/brown */
+
+
+
+/* header::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background: rgba(0, 0, 0, 0.6);
+} */

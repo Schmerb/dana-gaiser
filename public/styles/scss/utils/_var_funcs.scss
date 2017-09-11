@@ -1,0 +1,103 @@
+// // // // // // // // // // // // // //
+//
+//      Variables / Constants / @Mixins
+//
+// // // // // // // // // // // // // // 
+
+
+
+// ==================================================
+//      colors
+// ==================================================
+$primary:    #262626;
+$secondary:  #BFBFBF;
+$brown:      #8C6454;
+$lightbrown: #A88E83;;
+$offwhite:   #f2f2f2;
+
+// WINE pallete
+$wine1: #691934;
+$wine2: #4d1528;
+
+$wine3: #421919;
+
+$faded: rgba(0,0,0,0.1);
+
+// social brand colors
+$facebook:  #3B5898;
+$twitter:   #1da1f3;
+$linkedin:  #0077B5;
+$instagram: #c32aa3;
+
+
+$palettes: (
+    primary: (
+        base: $primary,
+        light: lighten($primary, 5%),
+        dark: darken($primary, 5%),
+    ),
+    secondary: (
+        base: $secondary,
+        vlight: lighten($secondary, 20%),
+        light: lighten($secondary, 5%),
+        dark: darken($secondary, 5%),
+        vdark: darken($secondary, 20%)
+    )
+);
+
+@function palette($palette, $tone: 'base') {
+    @return map-get( map-get($palettes, $palette), $tone);
+}
+
+
+
+// ==================================================
+//      numbers
+// ==================================================
+$banner: 80px;
+
+
+
+// ==================================================
+//      mixins
+// ==================================================
+
+
+@mixin center($left: 50%, $x: -50%) {
+    position: absolute;
+    left: $left;
+    transform: translateX($x);
+}
+
+@mixin middle($top: 50%, $y: -50%) {
+    position: absolute;
+    top: $top;
+    transform: translateY($y);
+}
+
+@mixin middleR($right: 0, $top: 50%, $y: -50%) {
+    position: absolute;
+    top: $top;
+    right: $right;
+    transform: translateY($y);
+}
+
+@mixin middleL($left: 0, $top: 50%, $y: -50%) {
+    position: absolute;
+    top: $top;
+    left: $left;
+    transform: translateY($y);
+}
+
+@mixin abs-middle($top: 50%, $left: 50%) {
+    position: absolute;
+    top: $top;
+    left: $left;
+    transform: translate(-50%, -50%);
+}
+
+@mixin transition($time: 0.3s, $what: all, $type: ease-in-out) {
+    -webkit-transition: $what $time $type;
+    -moz-transition: $what $time $type;
+    transition: $what $time $type;
+}

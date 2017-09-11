@@ -1,0 +1,115 @@
+/* * * * * * * * * * * * * * * * * * */
+/*     BANNER  (Base / Mobile)
+/* * * * * * * * * * * * * * * * * * */
+
+header {
+    @include transition;
+    background: url('/assets/images/sunset-pour-compressor.jpg') center;
+    background-size: cover;
+    background-repeat: no-repeat; 
+    position: relative;
+    color: #262626;
+    width: 100%;
+    min-height: 400px;
+    height: 100vh;
+    z-index: 1;
+    // border: 1px solid white;
+}
+
+.splash-text {
+    @include abs-middle;
+    width: 95%;
+    font-size: 26px;
+    color: $offwhite;
+    text-align: center;
+    top: 45%;
+    z-index: 2;
+
+    h2 {
+        @include transition;
+        font-family: 'Tangerine', cursive;
+        font-size: 70px;
+        @media screen and (min-width: $collapse) {
+            font-size: 90px;
+        }
+        @media screen and (min-width: 1100px) {
+            font-size: 140px;
+        }
+    }
+
+    ul {
+        @include transition;
+        color: white;
+        display: inline-block;
+        text-align: left;
+        font-size: 24px;
+        width: auto;
+        margin-top: 30px;
+        @media screen and (min-width: $collapse) {
+            font-size: 32px;
+            // width: 350px;
+        }
+        @media screen and (min-width: 1100px) {
+            font-size: 60px;
+            // width: 600px;
+        }
+    }
+    li {
+        display: block;
+        margin-bottom: 20px;
+    }
+    li:nth-of-type(n) {
+        // margin-left: 20px;
+    }
+    li:nth-of-type(2n) {
+        margin-left: 60px;
+        @media screen and (min-width: $collapse) {
+            margin-left: 80px;
+        }
+        @media screen and (min-width: 1100px) {
+            margin-left: 200px;
+        }
+        
+    }
+    li:nth-of-type(3n) {
+        margin-left: 120px;
+        @media screen and (min-width: $collapse) {
+            margin-left: 160px;
+        }
+        @media screen and (min-width: 1100px) {
+            margin-left: 400px;
+        }
+    }
+
+    @media screen and (min-width: $collapse) {
+        font-size: 40px;
+    }
+}
+
+.check-more {
+    @include center;
+    bottom: 10px;
+    color: white;
+    font-size: 20px;
+    // height: 60px;
+    text-align: center;
+    z-index: 2;
+
+    label {
+        display: inline-block;
+        line-height: 40px;
+        height: 40px;
+        vertical-align: top;
+    }
+}
+
+.chevron-down {
+    @include transition;
+    display: block;
+    width: 60px;
+    height: 60px;
+    margin: 0 auto;
+    &:hover {
+        transform: scale(1.3);
+    }
+}
