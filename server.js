@@ -47,15 +47,15 @@ app.use(morgan('common')); // log the http layer
 app.use(cookieParser()); // parses and handles cookies
 app.use(bodyParser.json()); // parses request and exposes it on req.body
 app.use(bodyParser.urlencoded({ extended: true }));
-app.use(busboyBodyParser({ limit: '10mb' })); // required for gridFS file store 
+// app.use(busboyBodyParser({ limit: '10mb' })); // required for gridFS file store 
 
 // required for passport
-app.use(session({ 
-  secret: 'secret',
-  store: new MongoStore({ mongooseConnection: mongoose.connection }),
-  resave: false,
-  saveUninitialized: false
-}));
+// app.use(session({ 
+//   secret: 'secret',
+//   store: new MongoStore({ mongooseConnection: mongoose.connection }),
+//   resave: false,
+//   saveUninitialized: false
+// }));
 
 
 // ROUTES
@@ -114,7 +114,10 @@ function closeServer() {
 
 // server is ran if file called directly, not for tests
 if (require.main === module) {
-    runServer().catch(err => console.error(err));
+    // runServer().catch(err => console.error(err));
+    app.listen(PORT, () => {
+      console.log(`Your app is listening on port ${PORT}`);
+    });
 }
 
 // for testing
