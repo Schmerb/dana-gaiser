@@ -19,6 +19,7 @@ header {
 .splash-text {
     @include abs-middle;
     width: 95%;
+    font-family: 'Raleway', sans-serif;
     font-size: 26px;
     color: $offwhite;
     text-align: center;

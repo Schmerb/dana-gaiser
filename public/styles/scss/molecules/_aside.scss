@@ -1,16 +1,59 @@
+
+
+.aside-hr {
+    width: 90%;
+    margin: 0 auto;
+    border-bottom: 1px solid rgba(0,0,0,0.1);
+    @media screen and (min-width: $aside) {
+        display: none;
+    }
+}
+
+.intro-aside {
+    @media screen and (min-width: $aside) {
+        float: right;
+        width: 20%;
+        height: 480px;
+        padding-left: 10px;
+        border-left: 1px solid rgba(0,0,0,0.1);
+    }
+}
+
+
+.aside-container {
+    color: #555;
+    font-size: 18px;
+    width: 300px;
+    margin: 20px auto;
+    text-align: center;
+
+    h3 {
+        font-size: 34px;
+    }
+
+    @media screen and (min-width: $aside) {
+        width: 200px;
+        text-align: left;
+    }
+}
+
 .email-btn {
     background: transparent;
     color: #555;
-    width: 100px;
+    width: 110px;
     height: 40px;
-    border: 2px solid #b2b2b2;
+    border: 2px solid $brown;
     cursor: pointer;
     -webkit-transition: all 0.3s ease;
     -moz-transition: all 0.3s ease;
     transition: all 0.3s ease;
 
     &:hover {
-        color: #262626;
-        border-color: #262626;
+        color: $brown;
+        border-color: $primary;
     }
+}
+
+.faded {
+    color: $brown;
 }

@@ -1,18 +1,31 @@
 
 #intro-section {
-    background: #8E3636;
-    background: #4F1E1E;
-    color: white;
+    // background: #8E3636;
+    // background: #4F1E1E;
+    // background: $lightbrown;
+    color: $primary;
     margin-top: 100px;
     width: 100%;
 }
 
+.intro-main {
+    @media screen and (min-width: $aside) {
+        width: 80%;
+        float: left;
+    }
+}
+
 .prof-wrap {
-    display: inline-block;
+    display: block;
     width: 100%;
     max-width: 400px;
+    margin: 0 auto;
     padding: 10px;
-
+    
+    @media screen and (min-width: 620px) {
+        display: inline-block;
+    }
+    
     label {
         float: right;
     }
@@ -22,21 +35,34 @@
     width: 100%;
     height: auto;
     border-radius: 5px;
+    box-shadow: 0 0 25px 0 rgba(0,0,0,0.4);
 }
 
 .intro-overview {
     @include transition(0.2s);
-    display: inline-block;
+    display: block;
+    font-size: 20px;
     font-weight: 100;
     max-width: 380px;
     margin: 0 auto;
-    vertical-align: top;
+
+    @media screen and (min-width: 620px) {
+        display: inline-block;
+        vertical-align: top;
+        max-width: 200px;
+    }
+    @media screen and (min-width: 650px) {
+        max-width: 35%;
+    }
+    @media screen and (min-width: 700px) {
+        max-width: 40%;
+    }
 }
 
 .overview {
     padding-left: 20px;
     margin-left: 5px;
-    margin-bottom: 20px;
+    margin-bottom: 50px;
     border-left: 3px solid #b2b2b2;
     border-left: 3px solid #555;
 }

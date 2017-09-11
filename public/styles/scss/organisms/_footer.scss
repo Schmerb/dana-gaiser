@@ -1,0 +1,100 @@
+/* * * * * * * * * * * * * * * * * * */
+/*    FOOTER    (Base / Mobile)                 
+/* * * * * * * * * * * * * * * * * * */
+.main-footer {
+    position: relative;
+    color: white;
+    background: #262626;
+    width: 100%;
+    min-height: 300px;
+    /* margin-top: 50px; */
+}
+
+.f-social-links {
+
+    
+    ul {
+        font-size: 22px;
+        padding-top: 20px;
+        text-align: center;
+    }
+    
+    li {
+        @include transition(0.4s);
+        position: relative;
+        width: 35px;
+        height: 35px;
+        border-radius: 50%;
+        border: 2px solid white;
+    }
+
+
+    li:not(:first-of-type) {
+        margin-left: 10px;
+    }
+
+    a {
+        @include abs-middle;
+        color: white;
+        width: 35px;
+        height: 35px;
+    }
+
+    .fa {
+        @include abs-middle;
+        @include transition(0.4s);
+    }
+
+
+    .fb:hover,
+    .fb-icon:hover .fa {
+        color: white;
+        background: $facebook;
+        border-color: $facebook;
+        /* border-color: #555; */
+    }
+
+    .twitter:hover,
+    .twitter-icon:hover .fa {
+        color: white;
+        background: $twitter;
+        border-color: $twitter;
+        /* border-color: #555; */
+    }
+
+    .linkd:hover,
+    .linkd-icon:hover .fa {
+        color: white;
+        background: $linkedin;
+        border-color: $linkedin;
+        /* border-color: #555; */
+    }
+
+    .insta:hover,
+    .insta-icon:hover .fa {
+        color: white;
+        background: $instagram;
+        border-color: $instagram;
+        /* border-color: #555; */
+    }
+
+}
+
+.bottom {
+    font-size: 13px;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 40px;
+    padding: 0 20px;
+}
+
+.email {
+    font-size: 24px;
+    float: right;
+
+    i {
+        margin-left: 10px;
+    }
+}
