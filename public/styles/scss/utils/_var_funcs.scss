@@ -101,3 +101,21 @@ $banner: 80px;
     -moz-transition: $what $time $type;
     transition: $what $time $type;
 }
+
+@mixin mediaMin($min) {
+    @media screen and (min-width: $min) {
+        @content;
+    }
+}
+
+@mixin mediaMax($max) {
+    @media screen and (max-width: $max) {
+        @content;
+    }
+}
+
+@mixin mediaMinMax($min, $max) {
+    @media screen and (min-width: $min) and (max-width: $max) {
+        @content;
+    }
+}

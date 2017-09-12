@@ -21,19 +21,16 @@
 
     &:hover {
         .burger-icon {
-            background: $lightbrown;;
+            background: $lightbrown;
+            // @include transition;
             &:after, &:before {
-                background: $lightbrown;;
+                background: $lightbrown;
             }
-
+            
             &.open {
-                background: transparent;
+                background-color: transparent;
             }
         }
-    }
-
-    @media screen and (min-width: $collapse) {
-        // display: none; 
     }
 }
 
@@ -43,27 +40,39 @@
 .burger-icon,
 .burger-icon::after,
 .burger-icon::before {
-    background: $offwhite;
+    background-color: $offwhite;
     width: 35px;
     height: 4px;
-    -webkit-transition: all 0.3s ease-in-out, 
+    -webkit-transition: background-color 1s ease-in-out, 
                         transform 0.8s ease-in-out, 
                         top 0.8s ease-in-out;
-    -moz-transition: all 0.3s ease-in-out, 
+    -moz-transition: background-color 1s ease-in-out, 
                      transform 0.8s ease-in-out, 
                      top 0.8s ease-in-out;
-    transition: all 0.3s ease-in-out, 
+    transition: background-color 1s ease-in-out, 
                 transform 0.8s ease-in-out, 
                 top 0.8s ease-in-out;
 }
 
 .burger-icon {
+    opacity: 1;
     @include middle(50%);
     &.open {
-        background: transparent;
+        @include transition(0.3s);
+        background-color: transparent;
 
         &:before, &:after {
-            background: $offwhite;
+            @include transition(0.3s);
+            -webkit-transition: background-color 0.3s ease-in-out, 
+                                transform 0.8s ease-in-out, 
+                                top 0.8s ease-in-out;
+            -moz-transition: background-color 0.3s ease-in-out, 
+                             transform 0.8s ease-in-out, 
+                             top 0.8s ease-in-out;
+            transition: background-color 0.3s ease-in-out, 
+                        transform 0.8s ease-in-out, 
+                        top 0.8s ease-in-out;
+            background-color: $offwhite;
             top: 0;
         }
 

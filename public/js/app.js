@@ -7,16 +7,22 @@ const state = {
 
 
 // SELECTOR CONSTANTS
-const BURGER_BTN    = '.burger-btn';
-const BURGER_ICON   = '.burger-icon';
-const NAV           = '.nav';
-const SERVICES      = '.services';
-const EXPERIENCES   = '.experiences';
-const CONTACTME     = '.contact';
-
+// NAV
+const BURGER_BTN     = '.burger-btn';
+const BURGER_ICON    = '.burger-icon';
+const NAV            = '.nav';
+const SERVICES       = '.services';
+const EXPERIENCES    = '.experiences';
+const CONTACTME      = '.contact';
 const CHECK_MORE_BTN = '.check-more';
 
+// INTRO
 const INTRO_SECTION = '.intro-section';
+
+// SERVICES
+const CIRCLE = '.circle';
+
+//FOOTER
 const SOCIAL_LINKS  = '.social-links';
 
 
@@ -320,6 +326,7 @@ function burgerIconClick() {
     });
 }
 
+// service item
 function servicesClick() {
     $(SERVICES).on('click', e => {
         e.preventDefault();
@@ -330,6 +337,7 @@ function servicesClick() {
     });
 }
 
+// experiecnes item
 function experiencesClick() {
     $(EXPERIENCES).on('click', e => {
         e.preventDefault();
@@ -340,12 +348,20 @@ function experiencesClick() {
     });
 }
 
+// more BTN
 function checkMoreClick() {
     $(CHECK_MORE_BTN).on('click', e => {
         e.preventDefault();
         smoothScroll('#intro-section');
     });
 }
+
+// circle click
+function circleClick() {}
+$(CIRCLE).on('click', e => {
+    e.preventDefault();
+    //show service text;
+});
 
 
 //================================================================================
@@ -357,6 +373,10 @@ function navClicks() {
     servicesClick();
     experiencesClick();
     checkMoreClick();
+}
+
+function serviceClicks() {
+    circleClick();
 }
 
 //================================================================================

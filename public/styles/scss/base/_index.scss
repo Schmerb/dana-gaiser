@@ -23,7 +23,9 @@ body {
     min-height: 100vh;
     min-width: 320px;
     margin: 0;
-    overflow-x: hidden;
+    @include mediaMin(500px) {
+        overflow-x: hidden;
+    }
 }
 
 .no-scroll {
@@ -44,7 +46,6 @@ body {
 
 .dim {
     background: rgba(0,0,0,0.3);
-    background: linear-gradient(180deg, rgba(0,0,0,0.5), rgba(0,0,0,0.3));
     position: absolute;
     left: 0;
     top: 0;

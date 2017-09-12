@@ -1,0 +1,106 @@
+.service-banner {
+    background-color: $lightbrown;
+    width: 100%;
+    min-height: 700px;
+    padding-top: 40px;
+
+    h2 {
+        font-size: 46px;
+        text-align: center;
+    }
+
+    ul {
+        max-width: 1200px;
+        margin: 0 auto;
+        overflow: auto;
+        overflow-x: hidden;
+    }
+
+    li {
+        position: relative;
+        width: 100%;
+        padding: 15px 0 50px;
+        text-align: center;
+
+        @include mediaMin($expand) { // 530px
+            width: 33.3%;
+            float: left;
+        }
+
+        label {
+            position: absolute;
+            font-size: 22px;
+            width: 200px;
+            height: 50px;
+            left: 50%;
+            bottom: 0;
+            transform: translateX(-50%);
+
+            @include mediaMinMax($expand, $tablet) {
+                &:first-of-type {
+                    margin-left: 10px;
+                }
+            }
+        }
+    }
+}
+
+.circle {
+    @include transition(0.7s);
+    position: relative;
+    display: inline-block;
+    width: 160px;
+    height: 160px;
+    border-radius: 50%;
+    border: 3px solid $offwhite;
+    cursor: pointer;
+
+    @include mediaMin($tablet){
+        width: 200px;
+        height: 200px;
+    }
+    @include mediaMin($desktop){
+        width: 240px;
+        height: 240px;
+    }
+
+    &:hover {
+        border-color: $primary;
+
+        svg {
+            fill: $brown;
+        }
+    }
+
+    svg {
+        @include transition(0.7s);
+        @include abs-middle;
+        width: 60px;
+        height: 60px;
+        fill: $primary;
+        stroke: $primary;
+        
+        @include mediaMin($tablet){
+            width: 100px;
+            height: 100px;
+        }
+        @include mediaMin($desktop){
+            width: 140px;
+            height: 140px;
+        }
+    }
+
+}
+
+.cocktails {
+    svg {
+        @include mediaMin($tablet){
+            width: 80px;
+            height: 80px;
+        }
+        @include mediaMin($desktop){
+            width: 100px;
+            height: 100px;
+        }
+    }
+}
