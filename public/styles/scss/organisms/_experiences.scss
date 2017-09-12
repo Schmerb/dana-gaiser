@@ -1,0 +1,36 @@
+/* * * * * * * * * * * * * * * * * * */
+/*    Experience  (Base / Mobile)                 
+/* * * * * * * * * * * * * * * * * * */
+#experiences {
+    width: 100%;
+    min-height: 300px;
+    margin: 50px 0;
+    padding: 20px 0 100px;
+    border: 1px solid blue;
+}
+
+
+/* * * * * * * * * * * * * * * * * * */
+/*   Experience  (Desktop / Tablet)                
+/* * * * * * * * * * * * * * * * * * */
+
+.exp-container {
+    height: 300px;
+    width: 90%;
+    margin: 0 auto;
+    border: 1px solid black;
+}
+
+.box-left {
+    width: 50%;
+    height: 100%;
+    float: left;
+    border: 1px solid black;
+}
+
+.box-right {
+    width: 50%;
+    height: 100%;
+    float: right;
+    border: 1px solid black;
+}

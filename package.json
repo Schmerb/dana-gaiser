@@ -22,11 +22,15 @@
         "request": "^2.81.0"
     },
     "devDependencies": {
+        "babel-core": "^6.26.0",
+        "babel-loader": "^7.1.2",
+        "babel-preset-env": "^1.6.0",
         "browser-sync": "^2.18.13",
         "chai": "^4.1.0",
         "chai-http": "^3.0.0",
         "faker": "^4.1.0",
         "gulp": "^3.9.1",
+        "gulp-babel": "^7.0.0",
         "gulp-clean-css": "^3.8.0",
         "gulp-concat": "^2.6.1",
         "gulp-minify": "^1.0.0",

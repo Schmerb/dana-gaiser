@@ -9,7 +9,8 @@ const gulp        = require('gulp'),
 	  sassGlob    = require('gulp-sass-glob'),
 	  minifyCSS   = require('gulp-clean-css'),
 	  rename      = require('gulp-rename'),
-	  concat      = require('gulp-concat');
+	  concat      = require('gulp-concat'),
+	  babel       = require('gulp-babel');
 
 gulp.task('browser-sync', ['nodemon'], () =>  {
 	browserSync.init(null, {
@@ -63,10 +64,26 @@ gulp.task('watch_scss', () => {
     gulp.watch(SCSS_SRC, ['build-scss']);
 })
 
+/////////////////
+// - BABEL
+/////////////////
+
+ 
+gulp.task('build_es6', () => {
+	gulp.watch(['public/js/app.js'], () => {
+		gulp.src('public/js/app.js')
+        .pipe(babel({
+            presets: ['env']
+		}))
+		.pipe(rename({suffix: '.build'}))
+        .pipe(gulp.dest('public/js/build'))
+	});
+});
+
 
 
 // - Reload browser on file save
-gulp.task('default', ['browser-sync', 'watch_scss'], () => {
+gulp.task('default', ['browser-sync', 'watch_scss', 'build_es6'], () => {
 	gulp.watch(["**/*.html", "**/*.css", "**/*.js", "**/**/*.ejs", "*.json", "*.md"], () => {
 		reload();
 	});

@@ -10,6 +10,8 @@
     /* margin-top: 50px; */
 }
 
+
+
 .f-social-links {
 
     
@@ -26,12 +28,12 @@
         height: 35px;
         border-radius: 50%;
         border: 2px solid white;
+
+        &:not(:first-of-type) {
+            margin-left: 10px;
+        }
     }
 
-
-    li:not(:first-of-type) {
-        margin-left: 10px;
-    }
 
     a {
         @include abs-middle;
@@ -80,21 +82,3 @@
 
 }
 
-.bottom {
-    font-size: 13px;
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    height: 40px;
-    padding: 0 20px;
-}
-
-.email {
-    font-size: 24px;
-    float: right;
-
-    i {
-        margin-left: 10px;
-    }
-}

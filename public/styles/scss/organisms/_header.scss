@@ -13,12 +13,16 @@ header {
     min-height: 560px;
     height: 100vh;
     z-index: 1;
-    @media screen and(min-width: $tablet) {
+    @include mediaMin($tablet) {
         background-attachment: fixed;
+    } 
+
+    @include mediaMin($desktop) {
+        min-height: 750px;
     }
 
-    @media screen and(min-width: $desktop) {
-        min-height: 750px;
+    @include mediaMin($desktop + 200) {
+        background-position-y: 40%;
     }
 }
 

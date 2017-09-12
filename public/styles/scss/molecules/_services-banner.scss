@@ -1,3 +1,9 @@
+// // // // // // // // // //
+//
+//       Service Banner
+//
+// // // // // // // // // //
+
 .service-banner {
     background-color: $lightbrown;
     width: 100%;
@@ -9,33 +15,42 @@
         text-align: center;
     }
 
-    ul {
+    > ul {
         max-width: 1200px;
         margin: 0 auto;
         overflow: auto;
         overflow-x: hidden;
     }
 
+}
+
+.row {
+    display: block;
+    width: 100%;
+
+    ul {
+        overflow-y: auto;
+        overflow-x: hidden;
+    }
+
     li {
         position: relative;
         width: 100%;
-        padding: 15px 0 50px;
+        padding: 15px 0;
         text-align: center;
-
+    
         @include mediaMin($expand) { // 530px
             width: 33.3%;
             float: left;
         }
-
+        
         label {
-            position: absolute;
+            display: block;
             font-size: 22px;
             width: 200px;
             height: 50px;
-            left: 50%;
-            bottom: 0;
-            transform: translateX(-50%);
-
+            margin: 0 auto;
+    
             @include mediaMinMax($expand, $tablet) {
                 &:first-of-type {
                     margin-left: 10px;
@@ -44,6 +59,16 @@
         }
     }
 }
+
+.info {
+    max-width: 200px;
+    margin: 0 auto;
+
+    p {
+        font-size: 18px;
+    }
+}
+
 
 .circle {
     @include transition(0.7s);
@@ -71,6 +96,8 @@
             fill: $brown;
         }
     }
+
+  
 
     svg {
         @include transition(0.7s);

@@ -1,0 +1,19 @@
+// // // // // // // // // //
+//
+//       Headshot
+//
+// // // // // // // // // //
+
+.headshot-wrap {
+    @include abs-middle;
+    width: 100px;
+    height: 100px;
+    margin: 0 auto;
+    border-radius: 50%;
+    overflow: hidden;
+
+    img {
+        width: 100%;
+        height: auto;
+    }
+}

@@ -1,0 +1,19 @@
+// // // // // // // // // //
+//
+//       Img Banner
+//
+// // // // // // // // // //
+
+.img-banner {
+    clear: both;
+    background: url("/assets/images/corks-compressor.jpg");
+    background-size: cover;
+    width: 100%;
+    height: 300px;
+    margin-top: 100px;
+    margin-bottom: 100px;
+
+    @include mediaMin($desktop) {
+        background-attachment: fixed;
+    }
+}
