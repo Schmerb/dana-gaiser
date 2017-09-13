@@ -44,10 +44,10 @@ header {
         @include transition;
         font-family: 'Tangerine', cursive;
         font-size: 70px;
-        @media screen and (min-width: $collapse) {
+        @include mediaMin($collapse) {
             font-size: 90px;
         }
-        @media screen and (min-width: $desktop) {
+        @include mediaMin($desktop) {
             font-size: 140px;
         }
     }
@@ -60,11 +60,11 @@ header {
         font-size: 24px;
         width: auto;
         margin-top: 30px;
-        @media screen and (min-width: $collapse) {
+        @include mediaMin($collapse) {
             font-size: 32px;
             // width: 350px;
         }
-        @media screen and (min-width: $desktop) {
+        @include mediaMin($desktop) {
             font-size: 60px;
             // width: 600px;
         }
@@ -78,25 +78,25 @@ header {
     }
     li:nth-of-type(2n) {
         margin-left: 60px;
-        @media screen and (min-width: $collapse) {
+        @include mediaMin($collapse) {
             margin-left: 80px;
         }
-        @media screen and (min-width: $desktop) {
+        @include mediaMin($desktop) {
             margin-left: 200px;
         }
         
     }
     li:nth-of-type(3n) {
         margin-left: 120px;
-        @media screen and (min-width: $collapse) {
+        @include mediaMin($collapse) {
             margin-left: 160px;
         }
-        @media screen and (min-width: $desktop) {
+        @include mediaMin($desktop) {
             margin-left: 400px;
         }
     }
 
-    @media screen and (min-width: $collapse) {
+    @include mediaMin($collapse) {
         font-size: 40px;
     }
 }
@@ -104,29 +104,27 @@ header {
 // Chekout More BTN
 
 .check-more {
-    @include center;
+    // @include transition;
+    position: absolute;
+    left: 50%;
+    display: inline-block;
     bottom: 60px;
-    color: white;
-    font-size: 20px;
-    // height: 60px;
-    text-align: center;
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    border: 1px solid white;
     z-index: 2;
+    transform: translateX(-50%);
 
-    label {
-        display: inline-block;
-        line-height: 40px;
-        height: 40px;
-        vertical-align: top;
+    &:hover {
+        @include zoom-header;
     }
 }
 
 .chevron-down {
     @include transition;
-    display: block;
+    @include abs-middle;
     width: 60px;
     height: 60px;
-    margin: 0 auto;
-    &:hover {
-        transform: scale(1.3);
-    }
 }
+

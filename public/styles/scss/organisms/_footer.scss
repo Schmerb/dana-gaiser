@@ -2,11 +2,16 @@
 /*    FOOTER    (Base / Mobile)                 
 /* * * * * * * * * * * * * * * * * * */
 .main-footer {
+    @include transition;
     position: relative;
     color: white;
     background: #262626;
     width: 100%;
-    min-height: 300px;
+    min-height: 350px;
+
+    @include mediaMin($tablet) {
+        min-height: 280px;
+    }
     /* margin-top: 50px; */
 }
 
@@ -31,7 +36,7 @@
 
         &:not(:first-of-type) {
             margin-left: 10px;
-        }
+        } 
     }
 
 
@@ -53,7 +58,6 @@
         color: white;
         background: $facebook;
         border-color: $facebook;
-        /* border-color: #555; */
     }
 
     .twitter:hover,
@@ -61,7 +65,6 @@
         color: white;
         background: $twitter;
         border-color: $twitter;
-        /* border-color: #555; */
     }
 
     .linkd:hover,
@@ -69,7 +72,6 @@
         color: white;
         background: $linkedin;
         border-color: $linkedin;
-        /* border-color: #555; */
     }
 
     .insta:hover,
@@ -77,7 +79,6 @@
         color: white;
         background: $instagram;
         border-color: $instagram;
-        /* border-color: #555; */
     }
 
 }

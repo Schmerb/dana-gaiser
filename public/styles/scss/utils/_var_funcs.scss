@@ -14,6 +14,8 @@ $secondary:  #BFBFBF;
 $brown:      #8C6454;
 $lightbrown: #A88E83;;
 $offwhite:   #f2f2f2;
+$bone:       #e3dac9;
+$blue:       #1e88e5;
 
 // WINE pallete
 $wine1: #691934;
@@ -32,16 +34,16 @@ $instagram: #c32aa3;
 
 $palettes: (
     primary: (
-        base: $primary,
+        base:  $primary,
         light: lighten($primary, 5%),
-        dark: darken($primary, 5%),
+        dark:  darken($primary, 5%),
     ),
     secondary: (
-        base: $secondary,
+        base:   $secondary,
         vlight: lighten($secondary, 20%),
-        light: lighten($secondary, 5%),
-        dark: darken($secondary, 5%),
-        vdark: darken($secondary, 20%)
+        light:  lighten($secondary, 5%),
+        dark:   darken($secondary, 5%),
+        vdark:  darken($secondary, 20%)
     )
 );
 
@@ -62,6 +64,20 @@ $banner: 80px;
 //      mixins
 // ==================================================
 
+
+@mixin transition($time: 0.3s, $what: all, $type: ease-in-out) {
+    -webkit-transition: $what $time $type;
+       -moz-transition: $what $time $type;
+            transition: $what $time $type;
+}
+
+@mixin transform($type) {
+        -ms-transform: $type;
+    -webkit-transform: $type;
+       -moz-transform: $type;
+            transform: $type;
+}
+
 @mixin cover() {
     position: absolute;
     top: 0;
@@ -73,41 +89,36 @@ $banner: 80px;
 @mixin center($left: 50%, $x: -50%) {
     position: absolute;
     left: $left;
-    transform: translateX($x);
+    @include transform(translateX($x));
 }
 
 @mixin middle($top: 50%, $y: -50%) {
     position: absolute;
     top: $top;
-    transform: translateY($y);
+    @include transform(translateY($y));
 }
 
 @mixin middleR($right: 0, $top: 50%, $y: -50%) {
     position: absolute;
     top: $top;
     right: $right;
-    transform: translateY($y);
+    @include transform(translateY($y));
 }
 
 @mixin middleL($left: 0, $top: 50%, $y: -50%) {
     position: absolute;
     top: $top;
     left: $left;
-    transform: translateY($y);
+    @include transform(translateY($y));
 }
 
 @mixin abs-middle($top: 50%, $left: 50%) {
     position: absolute;
     top: $top;
     left: $left;
-    transform: translate(-50%, -50%);
+    @include transform(translate(-50%, -50%));
 }
 
-@mixin transition($time: 0.3s, $what: all, $type: ease-in-out) {
-    -webkit-transition: $what $time $type;
-    -moz-transition: $what $time $type;
-    transition: $what $time $type;
-}
 
 @mixin mediaMin($min) {
     @media screen and (min-width: $min) {
@@ -125,4 +136,34 @@ $banner: 80px;
     @media screen and (min-width: $min) and (max-width: $max) {
         @content;
     }
+}
+
+@mixin zoom-header($time: 2s) {
+    animation-name: grow-header;
+    animation-duration: $time;
+    animation-iteration-count: infinite;
+}
+
+@mixin zoom($time: 2s) {
+    animation-name: grow;
+    animation-duration: $time;
+    animation-iteration-count: infinite;
+}
+
+
+// ==================================================
+//      keyframes
+// ==================================================
+
+
+@keyframes grow-header {
+    0%   { @include transform(scale(1)   translateX(-50%)); }
+    50%  { @include transform(scale(1.1) translateX(-45%)); }
+    100% { @include transform(scale(1)   translateX(-50%)); }
+}
+
+@keyframes grow {
+    0%   { @include transform(scale(1));   }
+    50%  { @include transform(scale(1.1)); }
+    100% { @include transform(scale(1));   }
 }

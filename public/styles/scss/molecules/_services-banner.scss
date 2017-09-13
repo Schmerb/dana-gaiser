@@ -5,14 +5,34 @@
 // // // // // // // // // //
 
 .service-banner {
-    background-color: $lightbrown;
+    font-family: 'Raleway',sans-serif;
+    color: $offwhite;
+    background-color: $primary;
+    background-image: url('../../assets/images/nighttime-compressor.jpg');
+    background-size: 510%;
+    background-repeat: no-repeat;
+    background-position-x: 13%;
     width: 100%;
-    min-height: 700px;
+    min-height: 1220px;
     padding-top: 40px;
-
+    padding-bottom: 100px;
+    
+    @include mediaMin($tablet) {
+        background-size: cover;
+        background-attachment: fixed;
+        background-position-x: unset;
+        height: 100vh;
+        min-height: 700px;
+    }
+    
+    
     h2 {
-        font-size: 46px;
+        font-family: 'tangerine', cursive;
+        position: relative;
+        font-size: 100px;
+        font-weight: lighter;
         text-align: center;
+        z-index: 3;        
     }
 
     > ul {
@@ -20,7 +40,10 @@
         margin: 0 auto;
         overflow: auto;
         overflow-x: hidden;
+        z-index: 3;
+        
     }
+
 
 }
 
@@ -39,7 +62,7 @@
         padding: 15px 0;
         text-align: center;
     
-        @include mediaMin($expand) { // 530px
+        @include mediaMin($tablet) { // 530px
             width: 33.3%;
             float: left;
         }
@@ -48,27 +71,58 @@
             display: block;
             font-size: 22px;
             width: 200px;
-            height: 50px;
-            margin: 0 auto;
-    
-            @include mediaMinMax($expand, $tablet) {
-                &:first-of-type {
-                    margin-left: 10px;
-                }
+            min-height: 50px;
+            margin: 10px auto 0;
+
+            @include mediaMin($expand) {
+                width: 240px;
+                font-size: 24px;
+            }
+            @include mediaMin($expand) {
+                font-size: 28px;
             }
         }
     }
 }
 
 .info {
-    max-width: 200px;
+    @include transition(0.5s);
+    font-size: 18px;
     margin: 0 auto;
+    max-width: 200px;
+    max-height: 0;
+    overflow: hidden;
 
-    p {
-        font-size: 18px;
+    @include mediaMin($landscape) {
+        font-size: 22px;
+        width: 70%;
+        max-width: 400px;
+    }
+
+    @include mediaMin($tablet) {
+        @include transition(1s);
+        font-size: 26px;
+        width: auto;
+        max-width: 400px;
+    }
+    
+    &.show {
+        transition-delay: 0.3s;
+        max-height: 1000px;
+
+        @include mediaMin($tablet) {
+            transition-delay: unset;
+        }
+    }
+   
+}
+
+.tastings {
+    &~.info {
     }
 }
 
+// CIRCLES
 
 .circle {
     @include transition(0.7s);
@@ -89,23 +143,29 @@
         height: 240px;
     }
 
-    &:hover {
-        border-color: $primary;
+    &:hover, &.current {
+        border-color: $offwhite;
+        border-color: $blue;
+        border-color: #555;
+        @include transform(scale(1.1));
 
         svg {
-            fill: $brown;
+            fill: $offwhite;
+            stroke: $primary;
         }
     }
 
   
+    // SVG Icons
 
     svg {
         @include transition(0.7s);
         @include abs-middle;
-        width: 60px;
-        height: 60px;
+        width: 80px;
+        height: 80px;
+
         fill: $primary;
-        stroke: $primary;
+        stroke: $offwhite;
         
         @include mediaMin($tablet){
             width: 100px;
@@ -119,15 +179,39 @@
 
 }
 
-.cocktails {
-    svg {
-        @include mediaMin($tablet){
-            width: 80px;
-            height: 80px;
-        }
-        @include mediaMin($desktop){
-            width: 100px;
-            height: 100px;
-        }
+
+#consulting {
+    @include transform(translate(-40%, -50%));
+}
+
+
+
+#tastings {
+    width: 100px;
+    height: 100px;
+
+    @include mediaMin($tablet){
+        width: 120px;
+        height: 120px;
+    }
+    @include mediaMin($desktop){
+        width: 160px;
+        height: 160px;
     }
 }
+
+
+
+
+// .cocktails {
+//     svg {
+//         @include mediaMin($tablet){
+//             width: 80px;
+//             height: 80px;
+//         }
+//         @include mediaMin($desktop){
+//             width: 100px;
+//             height: 100px;
+//         }
+//     }
+// }

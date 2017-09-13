@@ -3,6 +3,10 @@
         width: 200px;
         height: 200px;
     }
+
+    > h2 {
+        text-align: center;
+    }
 }
 
 .insta-content {
@@ -15,7 +19,7 @@
     display: inline-block;
     position: relative;
     margin: 0 auto;
-    border: 2px solid $primary;
+    // border: 2px solid $primary;
     cursor: pointer;
     overflow: hidden;
 }

@@ -1,16 +1,26 @@
 // // // // // // // // // //
 //
-//       Headshot
+//      Footer Headshot
 //
 // // // // // // // // // //
 
 .headshot-wrap {
-    @include abs-middle;
-    width: 100px;
-    height: 100px;
+    @include transition;
+    @include transform(translateY(-40%));
+    position: absolute;
+    top: 40%;
+    right: 10%;
+    width: 130px;
+    height: 130px;
     margin: 0 auto;
     border-radius: 50%;
+    border: 3px solid $brown;
     overflow: hidden;
+
+    @include mediaMin($desktop) {
+        top: 30%;
+        right: 15%;
+    }
 
     img {
         width: 100%;

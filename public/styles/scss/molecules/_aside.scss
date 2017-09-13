@@ -17,7 +17,7 @@
     @media screen and (min-width: $aside) {
         float: right;
         width: 20%;
-        height: 480px;
+        height: 600px;
         padding-left: 10px;
         border-left: 1px solid rgba(0,0,0,0.1);
     }
@@ -32,6 +32,7 @@
     text-align: center;
 
     h3 {
+        font-family: 'Raleway',sans-serif;
         font-size: 34px;
     }
 
@@ -44,7 +45,7 @@
 .email-btn {
     background: transparent;
     color: #555;
-    width: 110px;
+    // width: 110px;
     height: 40px;
     border: 2px solid $brown;
     cursor: pointer;

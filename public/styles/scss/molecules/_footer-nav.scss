@@ -1,0 +1,54 @@
+// // // // // // // // // //
+//
+//       F Nav
+//
+// // // // // // // // // //
+
+
+.f-nav {
+    @include transition;
+    @include transform(translate(-25%, -40%));
+    position: absolute;
+    top: 40%;
+    left: 15%;
+    
+    @include mediaMin($expand) {
+        // @include transform(translate(-25%, -40%));
+        // left: 10%;
+    }
+    @include mediaMin($expand) {
+        left: 20%;
+    }
+
+    ul {
+        font-size: 0;
+    }
+
+    li {
+        display: block;
+    }
+
+    a {
+        @include transition;
+        display: inline-block;
+        font-size: 20px;
+        color: $offwhite;
+        height: 30px;
+        line-height: 30px;
+
+        &:hover {
+            color: $brown;
+        }
+
+        @include mediaMin($iphone6) {
+            font-size: 24px;
+            height: 40px;
+            line-height: 40px;
+        }
+        @include mediaMin($iphone6P) {
+            font-size: 26px;
+            height: 45px;
+            line-height: 45px;
+        }
+    }
+}
