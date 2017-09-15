@@ -7,7 +7,7 @@
     color: white;
     background: #262626;
     width: 100%;
-    min-height: 350px;
+    min-height: 460px;
 
     @include mediaMin($tablet) {
         min-height: 280px;
@@ -82,4 +82,5 @@
     }
 
 }
+
 

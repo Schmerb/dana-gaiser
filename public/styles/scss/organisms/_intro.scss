@@ -12,23 +12,23 @@
         min-height: 620px;
     }
 
-    .check-more {
-        display: none;
-        @include mediaMin($landscape) {
-        }
-    }
+    // .check-more {
+    //     display: none;
+    //     @include mediaMin($landscape) {
+    //     }
+    // }
     
-    @include mediaMin($landscape){
-        .check-more {
-            display: unset;
-            border-color: transparent;
-            bottom: 20px;
-        }
-        .chevron-down {
-            fill: $primary;
-            fill-opacity: 0.4;
-        }
-    }
+    // @include mediaMin($landscape){
+    //     .check-more {
+    //         display: unset;
+    //         border-color: transparent;
+    //         bottom: 20px;
+    //     }
+    //     .chevron-down {
+    //         fill: $primary;
+    //         fill-opacity: 0.4;
+    //     }
+    // }
 }
 
 .intro-wrap {

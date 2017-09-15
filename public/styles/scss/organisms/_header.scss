@@ -44,6 +44,7 @@ header {
         @include transition;
         font-family: 'Tangerine', cursive;
         font-size: 70px;
+        font-weight: 100;
         @include mediaMin($collapse) {
             font-size: 90px;
         }

@@ -17,10 +17,17 @@
     border: 3px solid $brown;
     overflow: hidden;
 
-    @include mediaMin($desktop) {
-        top: 30%;
-        right: 15%;
+    
+
+    @include mediaMin($tablet) {
+        @include transform(translate(50%, -30%));
+        right: 50%;
     }
+
+    // @include mediaMin($desktop) {
+    //     top: 30%;
+    //     right: 15%;
+    // }
 
     img {
         width: 100%;

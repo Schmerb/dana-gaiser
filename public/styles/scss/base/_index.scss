@@ -30,6 +30,11 @@ body {
     }
 }
 
+.container {
+    position: relative;
+    z-index: 0;
+}
+
 .no-scroll {
     overflow: hidden;
 }

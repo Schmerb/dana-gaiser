@@ -1,13 +1,17 @@
 'use strict';
 
 const state = {
-    isMobile: false
+    isMobile: false,
+    yPos: 0,
+    up: false,
+    baseYPos: 0
 };
 
 
 
 // SELECTOR CONSTANTS
 // NAV
+const HEADER          = '.main-header';
 const BURGER_BTN      = '.burger-btn';
 const BURGER_ICON     = '.burger-icon';
 const NAV             = '.nav';
@@ -33,12 +37,14 @@ const SERVICE_ARROW    = '.service-arrow';
 // EXPERIENCES
 const EXPERIENCES_SECTION = '#experiences';
 const EXP_ARROW           = '.exp-arrow';
+const SLIDER              = '.uncorked-slider';
 
 // INSTAGRAM
 const INSTAGRAM_SCETION = '#instagram';
 
 // CONTACT
 const CONTACT_SECTION = '#contact-section';
+const CONTACT_FORM    = '#contact-form';
 
 //FOOTER
 const SOCIAL_LINKS  = '.social-links';
@@ -93,46 +99,14 @@ function getImgTemplate(entry) {
 // DOM / Display functions
 //================================================================================
 
-// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
-// displays instagram feed images to screen
-// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
-
-function displayInstaImages(feed) {
-    let images = feed.items.map(entry => getImgTemplate(entry));
-    $('.insta-content').append(images.join(''));
-    $('.insta-img').each((index, el) => {
-        let url = $(el).attr('data-url');
-        $(el).css({background: `url('${url}')`, 'background-size': 'cover', height: '290px'});
-    });
-}
-
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
 // Expands and collapses mobile menu
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
 function toggleMobileMenu() {
-
     $('.menu-list').add($(BURGER_ICON))
                    .toggleClass('open');
     $('body').toggleClass('no-scroll');
-
-    // if($(NAV).hasClass('expand')) {
-    //     $(NAV).add(INTRO_SECTION)
-    //           .add(SOCIAL_LINKS)
-    //           .add(BURGER_ICON)
-    //           .removeClass('expand');
-    //     setTimeout(function() {
-    //         $(NAV).removeClass('show');
-    //     }, 400);
-    // } else {
-    //     $(NAV).addClass('show');
-    //     setTimeout(function() {
-    //         $(NAV).add(INTRO_SECTION)
-    //               .add(SOCIAL_LINKS)
-    //               .add(BURGER_ICON)
-    //               .addClass('expand');      
-    //     }, 100);
-    // }
 }
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
@@ -143,6 +117,16 @@ function closeMenu() {
     $('.menu-list').removeClass('open');
     $(BURGER_ICON).removeClass('open');
 }
+
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+// Gets height of background image on page load and sets 
+// the max height to the current height
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+function fixBackgroundImgHeight() {
+    state.isMobile ? $(HEADER).css('max-height', $(HEADER).css('height')) : null;
+}
+
+
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
 // Reveals service info on center hover and hides others
@@ -204,6 +188,20 @@ function toggleServiceInfo($circle) {
 
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+// displays instagram feed images to screen
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+function displayInstaImages(feed) {
+    let images = feed.items.map(entry => getImgTemplate(entry));
+    $('.insta-content').append(images.join(''));
+    $('.insta-img').each((index, el) => {
+        let url = $(el).attr('data-url');
+        $(el).css({background: `url('${url}')`, 'background-size': 'cover', height: '290px'});
+    });
+}
+
+
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
 // Adds hidden class to all classes passed in as args
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
 function hide() {
@@ -238,7 +236,9 @@ function show() {
 // API calls
 //================================================================================
 
-
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+// Gets instagram feed images
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
 function getInstaFeed(maxId = '') {
     $.ajax({
         url: `/insta?maxId=${maxId}`,
@@ -253,6 +253,28 @@ function getInstaFeed(maxId = '') {
     });
 }
 
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+// Sends email to Dana Gaiser on form submit
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+function sendEmail($form) {
+    hide('.error');
+    $.ajax({
+        url: "https://formspree.io/mikeschmerbeck@gmail.com",
+        method: "POST",
+        data: $form.serialize(),
+        dataType: 'json',
+        success: res => {
+            $form[0].reset();
+        },
+        error: (jqXHR, status, err) => {
+            // console.log({jqXHR, status, err});
+            // console.log(jqXHR.responseJSON.error);
+            show('.error');
+            $(CONTACT_FORM).find('input[name=name]').focus();
+        }
+    });
+}
+
 
 // ================================================================================
 // Slick Carousel
@@ -263,47 +285,22 @@ function getInstaFeed(maxId = '') {
 // * * * * * * * * * * * * * * * * * * * * * * * * * 
 function initSlider() {
     $(SLIDER).slick({
-        dots: false,
+        dots: true,
         arrows: true,
-        infinite: false,
-        speed: 2400,
-        slidesToShow: 4,
-        slidesToScroll: 4,
-        variableWidth: true,
+        infinite: true,
+        speed: 600,
+        // autoplay: true,
+        autoplaySpeed: 5000,
+        fade: true,
+        cssEase: 'linear',
         responsive: [
             {
-                breakpoint: 1024,
+                breakpoint: 736,
                 settings: {
-                    slidesToShow: 4,
-                    slidesToScroll: 4
-                }
-            },
-            {
-                breakpoint: 860,
-                settings: {
-                    slidesToShow: 3,
-                    slidesToScroll: 3
-                }
-            },
-            {
-                breakpoint: 580,
-                settings: {
-                    slidesToShow: 2,
-                    slidesToScroll: 2
-                }
-            },
-            {
-                breakpoint: 415,
-                settings: {
-                    speed: 2000,
-                    slidesToShow: 1,
-                    slidesToScroll: 1,
-                    cssEase: 'ease-in-out'
+                    dots: true,
+                    arrows: false
                 }
             }
-            // You can unslick at a given breakpoint now by adding:
-            // settings: "unslick"
-            // instead of a settings object
         ]
     });
 }
@@ -415,21 +412,67 @@ function checkSizeHandler() {
 // or not (Portrait view)
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
 function checkSize() {
-    (window.matchMedia("(max-width: 415px)").matches) ? state.isMobile = true : state.isMobile = false;
+    (window.innerWidth <= 414) ? state.isMobile = true : state.isMobile = false;
 }
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
-// checks scroll position and hides/shows service info on
-// devices with a screen width of 737px or less
+// checks scroll position 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
 function checkScrollPos() {
     $(window).scroll(() => {
-        if(window.matchMedia("(max-width: 737px)").matches) {
-            revealServices();
-        } else {
-            console.log('not mobile');
-        }
+        checkScreenWidth();
+        fixBanner();
     });
+}
+
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+// hides/shows service info on
+// devices with a screen width of 737px or less
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+function checkScreenWidth() {
+    if(window.innerWidth <= 737) {
+        revealServices();
+    } else {
+        // console.log('not mobile');
+    }
+};
+
+
+
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+// fixes the banner nav on upward scroll
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+function fixBanner() {
+    let current = $(window).scrollTop();
+
+    if(current > 200) {
+        $('.banner').addClass('fixed');
+    } else {
+        $('.banner').removeClass('fixed');
+    }
+
+
+    // if current yPos is less than previous, scrolling upwards
+    if(current <= state.yPos) {
+        
+        // scrolled upwards for 10 or more px
+        if(state.baseYPos - current >= 2) {
+        }
+        $('.banner').addClass('show');
+
+        // just started going up, keep track of beginning of upwards distance
+        if(state.up === false) {
+            state.baseYPos = current;
+        }
+        state.up = true;
+    } else {
+        $('.banner').removeClass('show');
+        
+        state.up = false;
+        state.baseYPos = 0;
+    }
+    state.yPos = current;
+    // console.log(state.up ? 'up' : 'down');
 }
 
 
@@ -459,28 +502,33 @@ function navItemClick() {
 
 // intro item
 function introClick() {
-    $(INTRO).on('click', e => {
+    $(INTRO).on('click', function(e) {
         e.preventDefault();
-        smoothScroll(INTRO_SECTION, 2000, 'easeInOutQuart');
+        let offset = $(this).parents('.f-nav').length > 0 ? 80 : 0;
+        setTimeout(function() {
+            smoothScroll(INTRO_SECTION, 2000, 'easeInOutQuart', offset);
+        }, 400);
     });
 }
 
 // service item
 function servicesClick() {
-    $(SERVICES).on('click', e => {
+    $(SERVICES).on('click', function(e) {
         e.preventDefault();
+        let offset = $(this).parents('.f-nav').length > 0 ? 80 : 0;
         setTimeout(function() {
-            smoothScroll(SERVICES_SECTION, 2000, 'easeInOutQuart');
+            smoothScroll(SERVICES_SECTION, 2000, 'easeInOutQuart', offset);
         }, 400);
     });
 }
 
 // experiecnes item
 function experiencesNavClick() {
-    $(EXPERIENCES).on('click', e => {
+    $(EXPERIENCES).on('click', function(e) {
         e.preventDefault();
+        let offset = $(this).parents('.f-nav').length > 0 ? 80 : 0;
         setTimeout(function() {
-            smoothScroll(EXPERIENCES_SECTION, 2000, 'easeInOutQuart');
+            smoothScroll(EXPERIENCES_SECTION, 2000, 'easeInOutQuart', offset);
         }, 400);
     });
 }
@@ -505,11 +553,13 @@ function introMoreClick() {
     });
 }
 
-// email aside click
+// email click
 function emailBtnClick() {
-    $(EMAIL_BTN).on('click', e => {
+    $(EMAIL_BTN).on('click', function(e) {
         e.preventDefault();
-        smoothScroll(CONTACT_SECTION, 2000,  'easeInOutQuart');
+        let offset = $(this).parents('.main-footer').length > 0 ? 80 : 0;
+        smoothScroll(CONTACT_SECTION, 2000,  'easeInOutQuart', offset);
+        $(CONTACT_FORM).find('input[name=name]').focus();
     });
 }
 
@@ -538,13 +588,24 @@ function serviceMoreClick() {
 // * * * * * * * * *
 
 // exp arrow click
-function expMoreClick(){
+function expMoreClick() {
     $(EXP_ARROW).on('click', e => {
         e.preventDefault();
         smoothScroll(INSTAGRAM_SCETION, 2000, 'easeInOutQuart');
     });
 }
 
+// * * * * * * * * *
+//   CONTACT FORM
+// * * * * * * * * *
+
+// form submit
+function contactFormSubmit() {
+    $(CONTACT_FORM).on('submit', function(e) {
+        e.preventDefault();
+        sendEmail($(this));
+    });
+}
 
 // * * * * * * * * *
 //   FOOTER
@@ -589,6 +650,11 @@ function experienceClicks() {
     expMoreClick();
 }
 
+// Contact 
+function contactFormClicks() {
+    contactFormSubmit();
+}
+
 // Footer
 function footerClicks() {
     upArrowClick();
@@ -604,9 +670,11 @@ function utils() {
 }
 
 function init() {
+    checkSize();
     getInstaFeed();
+    fixBackgroundImgHeight();
     // scrollifyInit();
-    // displaySlider(); // initializes slick slider
+    displaySlider(); // initializes slick slider
     // responsiveReslick(); // tears down and reslicks slider on window resize
 }
 
@@ -620,6 +688,7 @@ $(function () {
     introClicks();
     serviceClicks();
     experienceClicks();
+    contactFormClicks();
     footerClicks();
     init();
 });

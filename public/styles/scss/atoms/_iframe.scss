@@ -1,0 +1,30 @@
+// // // // // // // // // //
+//
+//       iFrame
+//
+// // // // // // // // // //
+
+
+.outer-frame-wrap {
+    max-width: 600px;
+    margin: 0 auto;
+    @include mediaMin($desktop) {
+        max-width: 800px;
+        margin: 0;
+    }
+}
+
+.frame-wrap {
+    position: relative;
+    height: 0;
+    overflow: hidden;
+    padding-bottom: 56.26%;
+    
+    iframe {
+        position: absolute;
+        top:0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+    }
+}

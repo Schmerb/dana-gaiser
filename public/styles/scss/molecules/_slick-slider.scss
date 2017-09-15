@@ -1,0 +1,135 @@
+
+.uncorked-slider {
+    position: relative;
+}
+
+
+.slick-list,
+.slick-track {
+    overflow: hidden;
+    width: 100%;
+    height: 500px;
+    margin: 0 auto;
+    // border: 1px solid blue;
+    @include mediaMin($tablet) {
+        width: 80%;
+        min-width: 668px;
+    }
+}
+
+.slick-next, 
+.slick-prev {
+    @include mediaMax($tablet) {
+        display: none;
+    }
+    height: 100px;
+    width: 100px;
+    z-index: 1000;
+
+    &:before {
+        @include transition;
+        font-family: FontAwesome;
+        color: $primary;
+        font-size: 100px;
+
+    }
+    &:hover {
+        &:before {
+            color: $brown;
+        }
+    }
+}
+
+
+.slick-next {
+    right: 40px;
+
+    &:before {
+        content: '\f105';
+    }
+}
+
+.slick-prev {
+    left: 40px;
+    &:before {
+        content: '\f104';
+    }
+}
+
+
+.slide {
+    display: inline-block;
+    position: relative;
+    width: 100%;
+    height: 100%;
+
+    background-size: cover;
+    background-repeat: no-repeat;
+
+    &.exam {
+        background-image: url("../../../assets/images/Bosker-Master-Sommelier.jpg");
+    }
+    &.side-suit {
+        background-image: url("../../../assets/images/side-suit.jpg");
+        background-position-x: -150px;
+        @include mediaMin($iphone6P){
+            background-position-x: -70px;
+        }
+        @include mediaMin($tablet){
+            background-position-x: unset;
+        }
+    }
+    &.dana {
+        background-image: url("../../../assets/images/dana-uncorked-profile.png");
+        background-position-x: -400px;
+        background-size: 300%;
+        @include mediaMin($iphone6){
+            background-position-x: -480px;
+        }
+        @include mediaMin($iphone6P){
+            background-position-x: -510px;
+        }
+        @include mediaMin($tablet){
+            background-position-x: unset;
+            background-size: cover;
+        }
+    }
+    &.cast {
+        background-image: url("../../../assets/images/uncorked-cast.jpg");
+        background-position-x: -140px;
+        @include mediaMin($tablet){
+            background-position-x: unset;
+        }
+    }
+    &.cast-table {
+        background-image: url("../../../assets/images/uncorked-cast-table.jpg");
+        background-position-x: -280px;
+        @include mediaMin($iphone6){
+            background-position-x: -200px;
+        }
+        @include mediaMin($tablet){
+            background-position-x: unset;
+        }
+    }
+
+}
+
+
+.slick-dots {
+
+    li {
+        
+        button {
+            &:before {
+                @include transition;
+                font-size: 14px;
+            }
+
+            &:hover {
+                &:before {
+                    color: $brown;
+                }
+            }
+        }
+    }
+}

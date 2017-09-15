@@ -8,16 +8,19 @@
     @include transition;
     position: absolute;
     top: 5px;
-    right: 5px;
+    right: 10px;
     fill: $secondary;
     width: 40px;
     height: 40px;
-    
     cursor: pointer;
 
     &:hover {
         fill: $brown;
         @include zoom;
         // transform: scale(1.2);
+    }
+
+    @include mediaMin($expand) {
+        right: 40px;
     }
 }

@@ -1,4 +1,22 @@
+// // // // // // // // // //
+//
+//       Contact Section
+//
+// // // // // // // // // //
+
 #contact-section {
-    margin: 100px 0;
-    padding: 40px;
+    font-family: 'Raleway', sans-serif;
+    color: $primary;
+    margin: 80px 0;
+    padding: 15px;
+}
+
+.contact-wrap {
+    text-align: center;
+}
+
+h2 {
+    font-size: 46px;
+    // text-align: center;
+    font-weight: 100;
 }

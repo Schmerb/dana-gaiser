@@ -5,11 +5,26 @@
 // // // // // // // // // //
 
 .banner { 
+    @include transition;
+    background-color: transparent;
     position: relative;
     min-height: $banner;
 
-    // background: #262626;
-    // box-shadow: 0 0 25px 1px rgba(0,0,0,0.4);
+    &.fixed {
+        @include transition(1.3s); // slide up
+        background-color: #262626;
+        position: fixed;
+        width:100%;
+        left: 0;
+        top: -100%;
+        box-shadow: 0 0 25px 1px rgba(0,0,0,0.4);
+        z-index: 100;
+
+        &.show {
+            @include transition(.5s); // slide down
+            top: 0;
+        }
+    }
 }
 
 .title {
@@ -31,5 +46,4 @@
 }
 .title a {
     color: white;
-    // text-decoration: none;
 }

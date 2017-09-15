@@ -1,9 +1,98 @@
+// // // // // // // // // //
+//
+//       Contact Form
+//
+// // // // // // // // // //
+
+
 #contact-form {
-    height: 500px;
+    // height: 500px;
     max-width: 600px;
     margin: 0 auto;
-    border: 1px solid $primary;
+    // border: 1px solid $primary;
+    @include mediaMin($tablet) {
+        max-width: 1000px;
+    }
+}
+
+.contact-wrap {
     fieldset {
         padding: 20px;
+        border: none;
+
+        svg {
+            fill: #555;
+            width: 30px;
+            height: 30px;
+        }
+
+        input, textarea {
+            display: inline-block;
+            font-family: Arial, Helvetica, sans-serif;
+            font-weight: lighter;
+            width: 100%;
+            margin-bottom: 10px;
+            border: 1px solid $faded;
+            border-radius: 5px;
+
+
+            &::placeholder {
+                font-family: 'Raleway', sans-serif;
+            }
+        }
+
+        input {
+            background-size: 20px;
+            background-repeat: no-repeat;
+            background-position: 10px 19px;
+            height: 60px;
+            line-height: 60px;
+            padding-left: 40px;
+
+            &[name=name] {
+                background-image: url("../../../assets/icons/person-grey.png");
+            }
+            &[name=phone] {
+                background-image: url("../../../assets/icons/phone-grey.png");
+            }
+            &[name=email] {
+                background-image: url("../../../assets/icons/email-grey.png");
+            }
+            
+            @include mediaMin($tablet + 60) {
+                background-size: 24px;
+                background-position: 10px 17px;
+                width: 33%;
+                &[name=name] {
+                    float: left;
+                }
+                &[name=email] {
+                    float: right;
+                }
+            }
+        }
+
+        textarea {
+            background-image: url("../../../assets/icons/message-grey.png");
+            background-size: 20px;
+            background-repeat: no-repeat;
+            background-position: 10px 20px;
+            padding: 20px 5px 5px 40px;
+
+            min-height: 140px;
+            max-height: 300px;
+            min-width: 246px;
+        }
     }
+
+    button[type=submit] {
+        color: $primary;
+        background-color: $bone;
+        width: 200px;
+        height: 60px;
+        border-radius: 5px;
+        border: none;
+        cursor: pointer;
+    }
+
 }

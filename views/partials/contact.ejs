@@ -1,13 +1,29 @@
+<!-- CONTACT FORM  -->
 <section id="contact-section">
 
     <div class="contact-wrap">
         
-        <form id="contact-form">
+        <h2>Get in Touch</h2>
+        <p>Let's chat </p>
+
+        <form id="contact-form" action="#!" method="POST" enctype="text/plain">
             <fieldset>
-                <input type="text" name="firstname" placeholder="First Name">
-                <input type="text" name="lastname" placeholder="Last Name">
-                <textarea rows="" cols="" placeholder="Write your message . . ."></textarea>
+                
+                <input type="text" name="name" placeholder="Your Name" required>
+
+                <input type="tel" name="phone" placeholder="Your Phone Number" required>
+                
+                <input type="email" name="email" placeholder="Your Email" required>
+
+                <textarea name="message" placeholder="Write your message . . ." required></textarea>
             </fieldset>
+
+            <div class="error hidden">
+                <h2>Something went wrong</h2>
+                <p>Please check the form for correct entries.</p>
+            </div>
+
+            <button type="submit">SUBMIT</button>
         </form>
 
     </div>

@@ -1,0 +1,23 @@
+// // // // // // // // // //
+//
+//       Form Error
+//
+// // // // // // // // // //
+
+
+.error {
+    color: red;
+    font-size: 22px;
+
+    h2 {
+        font-size: 22px;
+    }
+
+    @include mediaMin($desktop) {
+        font-size: 28px;
+
+        h2 {
+            font-size: 28px;
+        }
+    }
+}

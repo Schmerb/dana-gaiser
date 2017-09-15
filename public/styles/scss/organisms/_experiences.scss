@@ -4,8 +4,9 @@
 #experiences {
     position: relative;
     width: 100%;
+    max-width: 1500px;
     min-height: 300px;
-    margin: 50px 0;
+    margin: 50px auto;
     padding: 20px 0;
     z-index: 1;
 
@@ -19,9 +20,16 @@
 
     hr {
         width: 80%;
+        // height: 1px;
         margin: 90px auto 0;
-        border: 0.3px solid rgba(0,0,0,0.05);
+        border: 1px solid rgba(0,0,0,0.05);
     }
+
+    .somm-hr {
+        max-width: 600px;
+        margin: 60px auto;
+    }
+    
 
     .exp-arrow {
         border-color: transparent;
@@ -34,99 +42,59 @@
 }
 
 
-/* * * * * * * * * * * * * * * * * * */
-/*   Experience  (Desktop / Tablet)                
-/* * * * * * * * * * * * * * * * * * */
+
 
 .exp-container {
     position: relative;
     color: $primary;
     font-size: 22px;
-    width: 90%;
+    width: 95%;
     max-width: 1600px;
     margin: 0 auto;
-
+    
     img {
         width: 100%;
         height: 100%;
     }
-}
-
-// SOMM medal img container
-.somm-img-wrap {
-    @include transition;
-    width: 300px;
-    margin: 0 auto;
 
     @include mediaMin($tablet) {
-        float: right;
-        margin-left: 15px;
+        width: 90%;
+        min-width: 680px;
     }
+}
+
+.work-info {
+    position: relative;
+}
+
+.current-work {
+    margin-top: 100px;
+    margin-bottom: 60px;
 
     @include mediaMin($desktop + 20) {
-        float: unset;
-        position: absolute;
-        right: 0;
-        top: 0;
-    }
-
-    @include mediaMin($desktop + 200) {
-        min-width: 300px;
-        max-width: 490px;
-        width: 25%;
+        margin-top: 200px;
     }
 }
-
-.uncorked-info {
-    text-align: center;
-
-    > p {
-        text-align: left;
-    }
-
-    blockquote {
-        display: inline-block;
-        vertical-align: top;
-    }
-}
-
-// Uncorked image container
-.uncorked-img-wrap {
-    width: 100%;
-}
-
-.work-info,
-.somm-info,
-.uncorked-info {
-    @include mediaMin($desktop + 200){
-        margin-left: 5%
-    }
-    @include mediaMin($desktop + 300){
-        margin-left: 10%
-    }
-    @include mediaMin($desktop + 400){
-        margin-left: 15%
-    }
-}
-
-.quote-by {
-    font-size: 16px;
-    margin-left: 25px;
-    margin-top: 5px;
-}
-
 
 
 // places worked list
-
 .work-list {
     font-family: "Raleway", sans-serif;
     text-align: center;
     max-width: 600px;
-    margin: 10px auto;
+    margin-top: 80px;
     
     @include mediaMin($landscape) {
-        margin-top: 80px;
+        margin: 80px auto 0;
+    }
+
+    @include mediaMin($desktop + 20) {
+        float: right;
+        margin: 20px 20px 80px;
+    }
+
+    @include mediaMin(1400px) {
+        margin-top: -40px;
     }
 
 
@@ -143,6 +111,122 @@
         }
     }
 }
+
+
+// SOMM medal img container
+.somm-img-wrap {
+    @include transition;
+    width: 300px;
+    margin: 0 auto;
+
+    @include mediaMin($tablet) {
+        float: right;
+        margin-left: 15px;
+    }
+
+    @include mediaMin($desktop + 20) {
+        float: left;
+    }
+
+    @include mediaMin($desktop + 100) {
+        margin-left: 5%;
+    }
+
+    @include mediaMin($desktop + 200) {
+        min-width: 300px;
+        max-width: 490px;
+        margin-left: 15%;
+        width: 25%;
+    }
+}
+
+.somm-info {
+    width: 100%;
+    overflow: auto;
+    margin-bottom: 50px;
+
+    @include mediaMin($desktop + 20) {
+        p {
+            float: right;
+            margin: 0;
+            margin-top: 30px;
+        }
+    }
+    @include mediaMin(1400px) {
+        p {
+            margin-top: 80px;
+            margin-right: 10px;
+        }
+    }
+}
+
+
+
+.uncorked-info {
+    text-align: center;
+    margin-top: 50px;
+    clear: both;
+
+    @include mediaMin($desktop) {
+        text-align: left;
+    }
+
+    > p {
+        text-align: left;
+        margin: 0 auto;
+    }
+
+    blockquote {
+        display: inline-block;
+        vertical-align: top;
+        @include mediaMin($desktop) {
+            display: block;
+            margin-bottom: 100px;
+        }
+    }
+
+    .quotes {
+        @include mediaMin($desktop) {
+            float: right;
+            margin-top: 100px;
+        }
+        @include mediaMin($desktop + 400) {
+            margin-right: 100px;
+        }
+    }
+
+}
+
+.clip-wrap {
+    margin-top: 30px;
+    margin-bottom: 100px;
+
+    h2 {
+        font-size: 20px;
+        margin-bottom: 15px;
+        @include mediaMin($tablet) {
+            // float: right;
+        }
+    }
+}
+
+
+.quote-by {
+    font-size: 16px;
+    margin-left: 25px;
+    margin-top: 5px;
+}
+
+// Uncorked image container
+.uncorked-img-wrap {
+    width: 100%;
+}
+
+
+
+
+
+
 
 
 

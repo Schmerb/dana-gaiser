@@ -13,7 +13,8 @@
     background-repeat: no-repeat;
     background-position-x: 13%;
     width: 100%;
-    min-height: 1220px;
+    height: 1240px;
+    max-height: 1240px;
     padding-top: 40px;
     padding-bottom: 100px;
     
@@ -37,23 +38,11 @@
 
     > ul {
         max-width: 1200px;
-        margin: 0 auto;
+        margin: 30px auto 0;
         overflow: auto;
         overflow-x: hidden;
         z-index: 3;
         
-    }
-
-
-}
-
-.row {
-    display: block;
-    width: 100%;
-
-    ul {
-        overflow-y: auto;
-        overflow-x: hidden;
     }
 
     li {
@@ -104,7 +93,7 @@
     }
 
     @include mediaMin($tablet) {
-        @include transition(2s, all, cubic-bezier(0.77, 0, 0.175, 1));
+        @include transition(1s, all, cubic-bezier(0.77, 0, 0.175, 1));
         font-size: 26px;
         width: auto;
         max-width: 400px;
@@ -118,7 +107,7 @@
             transition-delay: 0.3s;
         }
         @include mediaMin($tablet) {
-            transition-delay: unset;
+            transition-delay: 0s;
         }
     }
    
@@ -207,19 +196,3 @@
         height: 160px;
     }
 }
-
-
-
-
-// .cocktails {
-//     svg {
-//         @include mediaMin($tablet){
-//             width: 80px;
-//             height: 80px;
-//         }
-//         @include mediaMin($desktop){
-//             width: 100px;
-//             height: 100px;
-//         }
-//     }
-// }

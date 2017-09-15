@@ -10,7 +10,7 @@
 
 
 .menu-list {
-    @include transition(1.2s, all, cubic-bezier(0.625, 0.215, 0.265, 0.800));
+    @include transition(.8s, all, cubic-bezier(0.625, 0.215, 0.265, 0.800));
     position: absolute;
     background: linear-gradient(-5deg,transparent -200%, #421919 45%,#774e1f);
     background: $wine1;
