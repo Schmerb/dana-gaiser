@@ -413,6 +413,9 @@ function checkSizeHandler() {
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
 function checkSize() {
     (window.innerWidth <= 414) ? state.isMobile = true : state.isMobile = false;
+    
+    // removes vertical lines from last word in row of work list 
+    removeEndLines();
 }
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
@@ -472,8 +475,32 @@ function fixBanner() {
         state.baseYPos = 0;
     }
     state.yPos = current;
-    // console.log(state.up ? 'up' : 'down');
 }
+
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+// removes vertical lines from word on the end of each row
+// in previous work list, recalculating on window resize
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+function removeEndLines() {
+    // loop through each <li> and get its scroll yPos.
+    // when yPos increases, push previous <li> to an array
+    // once loop finishes, apply style to each el in array
+    // to remove | 
+    $('.work-list li').removeClass('end-of-row');
+    let places = $('.work-list li');
+    let endEls = [];
+    let prevyPos = 0;
+    places.each((index, el) => {
+        let yPos = $(el).offset().top;
+        if(yPos > prevyPos && index - 1 >= 0) {
+            endEls.push(places[index - 1]);
+        }
+        prevyPos = yPos;
+    });
+    endEls.forEach(el => {
+        $(el).addClass('end-of-row');
+    });
+}   
 
 
 //================================================================================
