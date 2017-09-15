@@ -289,7 +289,7 @@ function initSlider() {
         arrows: true,
         infinite: true,
         speed: 600,
-        // autoplay: true,
+        autoplay: true,
         autoplaySpeed: 5000,
         fade: true,
         cssEase: 'linear',
