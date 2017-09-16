@@ -611,8 +611,10 @@ function emailBtnClick() {
     $(EMAIL_BTN).on('click', function(e) {
         e.preventDefault();
         let offset = $(this).parents('.main-footer').length > 0 ? 80 : 0;
-        smoothScroll(CONTACT_SECTION, 2000,  'easeInOutQuart', offset);
-        $(CONTACT_FORM).find('input[name=name]').focus();
+       setTimeout(function() {
+            smoothScroll(CONTACT_SECTION, 2000,  'easeInOutQuart', offset);
+            $(CONTACT_FORM).find('input[name=name]').focus();
+       }, 400);
     });
 }
 
