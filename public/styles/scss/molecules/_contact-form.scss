@@ -17,8 +17,12 @@
 
 .contact-wrap {
     fieldset {
-        padding: 20px;
         border: none;
+        padding: 0;
+
+        @include mediaMin($landscape) {
+            padding: 20px;
+        }
 
         svg {
             fill: #555;
