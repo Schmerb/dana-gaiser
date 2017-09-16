@@ -9,6 +9,7 @@
     background-color: transparent;
     position: relative;
     min-height: $banner;
+    min-width: 320px;
 
     &.fixed {
         @include transition(1.3s); // slide up
@@ -35,7 +36,7 @@
     float: left;
     line-height: $banner;
     padding-left: 20px;
-    z-index: 1;
+    z-index: 7;
 
     @media screen and (min-width: $iphone6) {
         font-size: 30px;

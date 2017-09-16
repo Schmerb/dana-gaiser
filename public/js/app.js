@@ -4,7 +4,8 @@ const state = {
     isMobile: false,
     yPos: 0,
     up: false,
-    baseYPos: 0
+    baseYPos: 0,
+    downBaseYPos: 0
 };
 
 
@@ -107,6 +108,10 @@ function toggleMobileMenu() {
     $('.menu-list').add($(BURGER_ICON))
                    .toggleClass('open');
     $('body').toggleClass('no-scroll');
+
+    if(!$('.menu-list').hasClass('open') && $('body').hasClass('no-scroll')) {
+        $('body').removeClass('no-scroll');
+    }
 }
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
@@ -416,6 +421,9 @@ function checkSize() {
     
     // removes vertical lines from last word in row of work list 
     removeEndLines();
+
+    // make sure that user can scroll in case menu disappears
+    checkIfUserCanScroll();
 }
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
@@ -468,8 +476,17 @@ function fixBanner() {
             state.baseYPos = current;
         }
         state.up = true;
-    } else {
-        $('.banner').removeClass('show');
+    } else {// scrolling downwards
+
+        // just started going dowm, keep track of beginning of downwards distance
+        if(state.up === true) {
+            state.downBaseYPos = current; 
+        }
+
+        // scrolled downwards for 15 or more px
+        if(current - state.downBaseYPos >= 35) {
+            $('.banner').removeClass('show');
+        }
         
         state.up = false;
         state.baseYPos = 0;
@@ -501,6 +518,15 @@ function removeEndLines() {
         $(el).addClass('end-of-row');
     });
 }   
+
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+// make sure that user can scroll in case menu disappears
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+function checkIfUserCanScroll() {
+    if($('.menu-list').hasClass('open') && !$('.banner').hasClass('show')) {
+        $('body').removeClass('no-scroll');
+    }
+}       
 
 
 //================================================================================
