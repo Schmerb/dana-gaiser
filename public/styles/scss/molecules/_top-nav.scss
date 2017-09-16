@@ -11,26 +11,35 @@
 
 .menu-list {
     @include transition(.8s, all, cubic-bezier(0.625, 0.215, 0.265, 0.800));
-    background: linear-gradient(-5deg,transparent -200%, #421919 45%,#774e1f);
     position: absolute;
-    background: $wine1;
-    background: $wine2;
-    background: $wine3;
     width: 100%;
     font-size: 24px;
-    left: 0;
-    top: -400px;
-    padding-bottom: 25px;
     text-align: center;
-    box-shadow: 0 0 25px 1px rgba(0,0,0,0.5);
     z-index: 6;
+    
+    
     
     @media screen and (min-width: $collapse) {
         font-size: 32px;
     }
-
+    
+    // menu slides down from top
+    @media screen and (max-width: $desktop - 1) {
+        background: $wine3;
+        box-shadow: 0 0 25px 1px rgba(0,0,0,0.5);
+        left: 0;
+        top: -400px;
+        padding-bottom: 25px;
+    }
+    // menu slides out from hamburger
     @media screen and (min-width: $desktop) {
+        @include transition(1.3s, all, cubic-bezier(0.625, 0.215, 0.265, 0.800));
         background: transparent;
+        box-shadow: none;
+        height: 80px;
+        top: 50%;
+        right: -200%;
+        @include transform(translateY(-50%));
     }
 
     li {
@@ -40,18 +49,36 @@
         &:first-of-type {
             margin-top: 80px;
         }
+        @media screen and (min-width: $desktop) {
+            display: inline-block;
+            &:first-of-type {
+                margin-top: 0;
+            }
+        }
     }
     
     a {
         @include transition;
         display: inline-block;
         color: white;
-        &:hover {
-            color: $brown;
-            color: $lightbrown;
+        @media screen and (max-width: $desktop - 1) {
+            &:hover {
+                color: $brown;
+                color: $lightbrown;
+            }
+        }
+        @media screen and (min-width: $desktop) {
+            &:hover {
+                background: rgba(255,255,255,0.3);
+            }
         }
     }
     &.open {
-        top: 0;
+        @media screen and (max-width: $desktop - 1) {
+            top: 0;
+        }
+        @media screen and (min-width: $desktop) {
+            right: 0;
+        }
     }
 }
