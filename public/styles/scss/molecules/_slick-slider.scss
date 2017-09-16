@@ -15,6 +15,9 @@
         width: 80%;
         min-width: 668px;
     }
+    @include mediaMin($desktop) {
+        height: 600px;
+    }
 }
 
 .slick-next, 
@@ -31,7 +34,7 @@
         font-family: FontAwesome;
         color: $primary;
         font-size: 100px;
-
+        opacity: 0.3;
     }
     &:hover {
         &:before {
@@ -87,11 +90,14 @@
             background-position-x: -480px;
         }
         @include mediaMin($iphone6P){
-            background-position-x: -510px;
+            background-position-x: -300px;
+            background-size: cover;
+        }
+        @include mediaMin($iphone6P + 100){
+            background-position-x: -200px;
         }
         @include mediaMin($tablet){
             background-position-x: unset;
-            background-size: cover;
         }
     }
     &.cast {

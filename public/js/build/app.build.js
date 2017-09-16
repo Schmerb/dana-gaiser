@@ -260,14 +260,13 @@ function initSlider() {
         arrows: true,
         infinite: true,
         speed: 600,
-        autoplay: true,
+        // autoplay: true,
         autoplaySpeed: 5000,
         fade: true,
         cssEase: 'linear',
         responsive: [{
-            breakpoint: 736,
+            breakpoint: 1240,
             settings: {
-                dots: true,
                 arrows: false
             }
         }]
