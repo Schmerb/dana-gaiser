@@ -237,6 +237,7 @@ function sendEmail($form) {
         dataType: 'json',
         success: function success(res) {
             $form[0].reset();
+            alert('Success! Your email has been sent.');
         },
         error: function error(jqXHR, status, err) {
             // console.log({jqXHR, status, err});
