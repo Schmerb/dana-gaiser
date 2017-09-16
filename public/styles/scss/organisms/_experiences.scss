@@ -26,8 +26,12 @@
     }
 
     .somm-hr {
-        max-width: 600px;
+        display: block;
         margin: 60px auto;
+        height: 70px;
+        width: 80%;
+        max-width: 600px;
+        opacity: 0.2;
     }
     
 
@@ -56,6 +60,7 @@
         width: 100%;
         height: 100%;
     }
+    
 
     @include mediaMin($tablet) {
         width: 90%;
