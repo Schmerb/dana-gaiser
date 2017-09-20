@@ -9,26 +9,33 @@
 
     @include mediaMin($tablet) {
         height: 100vh;
-        min-height: 900px;
+        min-height: 1000px;
     }
 
-    // .check-more {
-    //     display: none;
-    //     @include mediaMin($landscape) {
-    //     }
-    // }
+    @include mediaMin($tablet + 200) {
+        height: 100vh;
+        min-height: 800px;
+    }
+
+    .check-more {
+        display: none;
+    }
     
-    // @include mediaMin($landscape){
-    //     .check-more {
-    //         display: unset;
-    //         border-color: transparent;
-    //         bottom: 20px;
-    //     }
-    //     .chevron-down {
-    //         fill: $primary;
-    //         fill-opacity: 0.4;
-    //     }
-    // }
+    @include mediaMin($landscape){
+        .check-more {
+            display: unset;
+            border-color: transparent;
+            bottom: 20px;
+
+            &:hover {
+                @include zoom;
+            }
+        }
+        .chevron-down {
+            fill: $primary;
+            fill-opacity: 0.4;
+        }
+    }
 }
 
 .intro-wrap {

@@ -197,7 +197,12 @@ function toggleServiceInfo($circle) {
 
 function displayInstaImages(feed) {
     let images = feed.items.map(entry => getImgTemplate(entry));
-    $('.insta-content').append(images.join(''));
+    let toScreen = [];
+    for(let i = 0; i < 8; i++) {
+        toScreen.push(images[i]);
+        console.log('inside');
+    }
+    $('.insta-content').append(toScreen.join(''));
     $('.insta-img').each((index, el) => {
         let url = $(el).attr('data-url');
         $(el).css({background: `url('${url}')`, 'background-size': 'cover', height: '290px'});
