@@ -10,8 +10,13 @@ const gulp        = require('gulp'),
 	  minifyCSS   = require('gulp-clean-css'),
 	  rename      = require('gulp-rename'),
 	  concat      = require('gulp-concat'),
+	  browserify  = require('gulp-browserify'),
 	  babel       = require('gulp-babel');
 
+
+/////////////////////
+// - BrowserSync
+/////////////////////
 gulp.task('browser-sync', ['nodemon'], () =>  {
 	browserSync.init(null, {
 		proxy: "http://localhost:8080",
@@ -73,9 +78,20 @@ gulp.task('build_es6', () => {
 	gulp.watch(['public/js/app.js'], () => {
 		gulp.src('public/js/app.js')
         .pipe(babel({
-            presets: ['env']
+			presets: ['env'],
+			plugins: [
+				['transform-runtime', {
+					"helpers": false,
+					"polyfill": true,
+					"regenerator": true,
+					"moduleName": "babel-runtime"
+				}]
+			]
 		}))
 		.pipe(rename({suffix: '.build'}))
+		.pipe(browserify({
+			insertGlobals: true
+		}))
         .pipe(gulp.dest('public/js/build'))
 	});
 });

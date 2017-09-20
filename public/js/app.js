@@ -91,8 +91,8 @@ function getImgTemplate(entry) {
                     <div class="caption">
                         ${caption !== null ? caption : ''}
                     </div>
-                </div>
-            </a>`;
+                </div> 
+            </a>`; 
 }
 
 
@@ -295,7 +295,7 @@ function initSlider() {
         arrows: true,
         infinite: true,
         speed: 600,
-        // autoplay: true,
+        autoplay: true,
         autoplaySpeed: 5000,
         fade: true,
         cssEase: 'linear',
