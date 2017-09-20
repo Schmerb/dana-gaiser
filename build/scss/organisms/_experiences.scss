@@ -147,6 +147,10 @@
         margin-left: 15%;
         width: 25%;
     }
+
+    img {
+        border: 3px solid palette(brownn, vdark);
+    }
 }
 
 .somm-info {
@@ -182,7 +186,7 @@
 
     > p {
         text-align: left;
-        margin: 0 auto;
+        margin: 0 auto 30px;
     }
 
     blockquote {
@@ -204,19 +208,18 @@
         }
     }
 
+    h2 {
+        font-size: 24px;
+        max-width: 600px;
+        font-weight: unset;
+        margin: 40px auto 0;
+    }
+
 }
 
 .clip-wrap {
     margin-top: 30px;
     margin-bottom: 100px;
-
-    h2 {
-        font-size: 20px;
-        margin-bottom: 15px;
-        @include mediaMin($tablet) {
-            // float: right;
-        }
-    }
 }
 
 

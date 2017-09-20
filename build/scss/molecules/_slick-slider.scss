@@ -76,7 +76,7 @@
         background-image: url("../../../assets/images/side-suit.jpg");
         background-position-x: -150px;
         @include mediaMin($iphone6P){
-            background-position-x: -70px;
+            background-position-x: 0;
         }
         @include mediaMin($tablet){
             background-position-x: unset;
@@ -97,6 +97,9 @@
             background-position-x: -200px;
         }
         @include mediaMin($tablet){
+            background-position-x: -100px;
+        }
+        @include mediaMin($desktop + 300){
             background-position-x: unset;
         }
     }

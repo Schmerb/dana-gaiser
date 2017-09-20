@@ -38,6 +38,13 @@ $palettes: (
         light: lighten($primary, 5%),
         dark:  darken($primary, 5%),
     ),
+    brownn: (
+        base:  $brown,
+        vlight: lighten($brown, 20%),
+        light:  lighten($brown, 5%),
+        dark:   darken($brown, 5%),
+        vdark:  darken($brown, 20%)
+    ), 
     secondary: (
         base:   $secondary,
         vlight: lighten($secondary, 20%),

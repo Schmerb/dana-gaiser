@@ -5,7 +5,8 @@ const state = {
     yPos: 0,
     up: false,
     baseYPos: 0,
-    downBaseYPos: 0
+    downBaseYPos: 0,
+    images: []
 };
  
 
@@ -197,6 +198,7 @@ function toggleServiceInfo($circle) {
 
 function displayInstaImages(feed) {
     let images = feed.items.map(entry => getImgTemplate(entry));
+    state.images = images;
     let toScreen = [];
     for(let i = 0; i < 8; i++) {
         toScreen.push(images[i]);
@@ -207,6 +209,23 @@ function displayInstaImages(feed) {
         let url = $(el).attr('data-url');
         $(el).css({background: `url('${url}')`, 'background-size': 'cover', height: '290px'});
     });
+}
+
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+// Displays more instagram feed images to screen
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+function displayMoreInstaImages() {
+    let toScreen = [];
+    for(let i = 8; i < 16; i++) {
+        toScreen.push(state.images[i]);
+        console.log('inside');
+    }
+    $('.insta-content').append(toScreen.join(''));
+    $('.insta-img').each((index, el) => {
+        let url = $(el).attr('data-url');
+        $(el).css({background: `url('${url}')`, 'background-size': 'cover', height: '290px'});
+    });
+    hide('.insta-more-btn');
 }
 
 
@@ -655,6 +674,17 @@ function expMoreClick() {
 }
 
 // * * * * * * * * *
+//   INSTAGRAM
+// * * * * * * * * *
+
+function moreInstaImageClick() {
+    $('.insta-more-btn').on('click', e => {
+        e.preventDefault();
+        displayMoreInstaImages();
+    });
+}
+
+// * * * * * * * * *
 //   CONTACT FORM
 // * * * * * * * * *
 
@@ -676,6 +706,7 @@ function upArrowClick() {
         smoothScroll('header');
     });
 }
+
 
 
 //================================================================================
@@ -707,6 +738,11 @@ function serviceClicks() {
 // Experience
 function experienceClicks() {
     expMoreClick();
+}
+
+// Instagram
+function instagramClicks() {
+    moreInstaImageClick();
 }
 
 // Contact 
@@ -747,6 +783,7 @@ $(function () {
     introClicks();
     serviceClicks();
     experienceClicks();
+    instagramClicks();
     contactFormClicks();
     footerClicks();
     init();

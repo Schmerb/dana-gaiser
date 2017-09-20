@@ -16,8 +16,9 @@
     border-radius: 50%;
     border: 3px solid $brown;
     overflow: hidden;
+    cursor: pointer;
+    z-index: 10;
 
-    
 
     @include mediaMin($tablet) {
         @include transform(translate(50%, -30%));
