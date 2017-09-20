@@ -13,6 +13,11 @@
 .insta-content {
     font-size: 0;
     text-align: center;
+    margin: 0 auto;
+
+    @include mediaMin($desktop) {
+        max-width: 1200px;
+    }
 }
 
 .insta-img-wrap {
