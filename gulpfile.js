@@ -8,6 +8,7 @@ const gulp        = require('gulp'),
 	  sass        = require('gulp-sass'),
 	  sassGlob    = require('gulp-sass-glob'),
 	  minifyCSS   = require('gulp-clean-css'),
+	  minify      = require('gulp-minify'),
 	  rename      = require('gulp-rename'),
 	  concat      = require('gulp-concat'),
 	  browserify  = require('gulp-browserify'),
@@ -48,12 +49,12 @@ gulp.task('nodemon', (cb) => {
     })
 });
 
+
 /////////////////
 // - SCSS/CSS
 /////////////////
-
-const SCSS_SRC  = 'public/styles/scss/**/*.scss';
-const SCSS_DEST = 'public/styles/css';
+const SCSS_SRC  = 'build/scss/**/*.scss';
+const SCSS_DEST = 'public/css';
 
 gulp.task('build-scss', function() {
     return gulp.src(SCSS_SRC)
@@ -69,14 +70,17 @@ gulp.task('watch_scss', () => {
     gulp.watch(SCSS_SRC, ['build-scss']);
 })
 
+
 /////////////////
 // - BABEL
 /////////////////
-
+const JS_SRC  = 'build/js/**/*.js';
+const JS_DEST = 'public/js/' 
  
 gulp.task('build_es6', () => {
-	gulp.watch(['public/js/app.js'], () => {
-		gulp.src('public/js/app.js')
+	gulp.watch([JS_SRC], () => {
+		console.log('building js files');
+		gulp.src(JS_SRC)
         .pipe(babel({
 			presets: ['env'],
 			plugins: [
@@ -88,11 +92,17 @@ gulp.task('build_es6', () => {
 				}]
 			]
 		}))
-		.pipe(rename({suffix: '.build'}))
 		.pipe(browserify({
 			insertGlobals: true
 		}))
-        .pipe(gulp.dest('public/js/build'))
+		.pipe(rename({basename: 'all'}))
+		.pipe(minify({
+			ext: {
+				src: '.min.js',
+				min: '.js'
+			}
+		}))
+        .pipe(gulp.dest(JS_DEST))
 	});
 });
 

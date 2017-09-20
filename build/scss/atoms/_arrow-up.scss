@@ -14,13 +14,13 @@
     height: 40px;
     cursor: pointer;
 
-    &:hover {
+    &:hover { 
         fill: $brown;
         @include zoom;
         // transform: scale(1.2);
     }
 
     @include mediaMin($expand) {
-        right: 40px;
+        right: 40px; 
     }
 }

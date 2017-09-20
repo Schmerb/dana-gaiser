@@ -7,8 +7,7 @@ const state = {
     baseYPos: 0,
     downBaseYPos: 0
 };
-
-
+ 
 
 // SELECTOR CONSTANTS
 // NAV
@@ -20,11 +19,11 @@ const INTRO           = '.intro';
 const SERVICES        = '.services';
 const EXPERIENCES     = '.experiences';
 const CONTACTME       = '.contact';
-const HEADER_MORE_BTN = '.header-more';
+const HEADER_MORE_BTN = '.header-more'; 
 
 // INTRO
 const INTRO_SECTION = '#intro-section';
-const INTRO_ARROW   = '.intro-arrow';
+const INTRO_ARROW   = '.intro-arrow'; 
 const EMAIL_BTN     = '.email-link';
 
 // SERVICES
@@ -39,7 +38,7 @@ const SERVICE_ARROW    = '.service-arrow';
 const EXPERIENCES_SECTION = '#experiences';
 const EXP_ARROW           = '.exp-arrow';
 const SLIDER              = '.uncorked-slider';
-
+   
 // INSTAGRAM
 const INSTAGRAM_SCETION = '#instagram';
 
