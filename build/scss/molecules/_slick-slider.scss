@@ -8,14 +8,14 @@
 .slick-track {
     overflow: hidden;
     width: 100%;
-    height: 500px;
+    height: 400px;
     margin: 0 auto;
     @include mediaMin($tablet) {
         width: 80%;
         min-width: 668px;
     }
     @include mediaMin($desktop) {
-        height: 600px;
+        height: 500px;
     }
 }
 
@@ -74,7 +74,7 @@
     }
     &.side-suit {
         background-image: url("../../../assets/images/side-suit.jpg");
-        background-position-x: -150px;
+        background-position-x: -100px;
         @include mediaMin($iphone6P){
             background-position-x: 0;
         }
@@ -90,17 +90,17 @@
             background-position-x: -480px;
         }
         @include mediaMin($iphone6P){
-            background-position-x: -300px;
+            background-position-x: -220px;
             background-size: cover;
         }
         @include mediaMin($iphone6P + 100){
             background-position-x: -200px;
         }
-        @include mediaMin($tablet){
+        @include mediaMin(550px){
             background-position-x: -100px;
         }
-        @include mediaMin($desktop + 300){
-            background-position-x: unset;
+        @include mediaMin($tablet){
+            background-position-x: 0;
         }
     }
     &.cast {

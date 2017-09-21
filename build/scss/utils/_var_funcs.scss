@@ -158,6 +158,12 @@ $banner: 80px;
     animation-iteration-count: infinite;
 }
 
+@mixin grow($time: 2s) {
+    animation-name: grow;
+    animation-duration: $time;
+    animation-iteration-count: infinite;
+}
+
 
 // ==================================================
 //      keyframes

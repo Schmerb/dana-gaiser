@@ -479,8 +479,9 @@ function checkScreenWidth() {
 // Sets form min and max width to current width
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
 function setFormMaxWidth() {
-    let maxW = $('textarea[name="message"]').css('width');
-    $('textarea[name="message"]').css({'min-width': maxW, 'max-width': maxW});
+    let $tArea = $('textarea[name="message"]');
+    let maxW = parseInt($(CONTACT_FORM).css('width')) - 40;
+    $tArea.css('max-width', maxW + 'px');
 }
 
 

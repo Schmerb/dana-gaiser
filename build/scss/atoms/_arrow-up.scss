@@ -16,7 +16,7 @@
 
     &:hover { 
         fill: $brown;
-        @include zoom;
+        @include grow;
         // transform: scale(1.2);
     }
 
