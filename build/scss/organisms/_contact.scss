@@ -12,9 +12,12 @@
 
     input,
     textarea {
-        max-width: 956px;
         &:focus {
             border: 1px solid $brown;
+        }
+
+        @include mediaMin($desktop){
+            max-width: 956px;
         }
     }
 }

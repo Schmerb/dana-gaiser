@@ -318,10 +318,11 @@ function initSlider() {
         arrows: true,
         infinite: true,
         speed: 600,
-        autoplay: true,
+        // autoplay: true,
         autoplaySpeed: 5000,
         fade: true,
         cssEase: 'linear',
+        variableWidth: false,
         responsive: [
             {
                 breakpoint: 1240,
@@ -447,6 +448,9 @@ function checkSize() {
 
     // make sure that user can scroll in case menu disappears
     checkIfUserCanScroll();
+
+    // set min/max width of forms elements
+    setFormMaxWidth();
 }
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
@@ -470,6 +474,14 @@ function checkScreenWidth() {
         // console.log('not mobile');
     }
 };
+
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+// Sets form min and max width to current width
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+function setFormMaxWidth() {
+    let maxW = $('textarea[name="message"]').css('width');
+    $('textarea[name="message"]').css({'min-width': maxW, 'max-width': maxW});
+}
 
 
 
