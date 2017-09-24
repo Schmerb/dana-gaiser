@@ -21,7 +21,7 @@ const gulp        = require('gulp'),
 gulp.task('browser-sync', ['nodemon'], () =>  {
 	browserSync.init(null, {
 		proxy: "http://localhost:8080",
-        files: ["public/**/*.js"],
+        files: ["public/**/*.js", "public/**/*.css", "**/**/*.ejs"],
         browser: "google chrome",
         port: 7000,
 	});
@@ -111,6 +111,7 @@ gulp.task('build_es6', () => {
 // - Reload browser on file save
 gulp.task('default', ['browser-sync', 'watch_scss', 'build_es6'], () => {
 	gulp.watch(["**/*.html", "**/*.css", "**/*.js", "**/**/*.ejs", "*.json", "*.md"], () => {
+		console.log('reloading'); 
 		reload();
 	});
 });

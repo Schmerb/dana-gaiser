@@ -38,7 +38,7 @@
     }
     
     a {
-        @include transition;
+        @extend %transition;
         display: inline-block;
         color: white;
         &:hover {

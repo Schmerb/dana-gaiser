@@ -3,8 +3,9 @@
 /* * * * * * * * * * * * * * * * * * */
 
 header {
-    @include transition;
+    @extend %transition;
     background: url('/assets/images/sunset-pour-compressor.jpg') center;
+    background: url('/assets/images/drinks/wine-platter-compressor.jpg') center;
     background-size: cover;
     background-repeat: no-repeat; 
     position: relative;
@@ -12,7 +13,7 @@ header {
     width: 100%;
     min-height: 560px;
     height: 100vh;
-    z-index: 1;
+    z-index: 1; 
     @include mediaMin($tablet) {
         background-attachment: fixed;
     } 
@@ -26,12 +27,8 @@ header {
     }
 }
 
-.dim {
-    // background: linear-gradient(180deg, rgba(0,0,0,0.55), rgba(0,0,0,0.4));
-}
-
 .splash-text {
-    @include abs-middle;
+    @extend %abs-middle;
     width: 95%;
     font-family: 'Raleway', sans-serif;
     font-size: 26px;
@@ -40,12 +37,16 @@ header {
     top: 45%;
     z-index: 2;
 
+    @include mediaMin($landscape) {
+        font-size: 40px;
+    }
+
     h2 {
-        @include transition;
+        @extend %transition;
         font-family: 'Tangerine', cursive;
         font-size: 70px;
         font-weight: 100;
-        @include mediaMin($collapse) {
+        @include mediaMin($landscape) {
             font-size: 90px;
         }
         @include mediaMin($desktop) {
@@ -54,14 +55,14 @@ header {
     }
 
     ul {
-        @include transition;
+        @extend %transition;
         color: white;
         display: inline-block;
         text-align: left;
         font-size: 24px;
         width: auto;
         margin-top: 30px;
-        @include mediaMin($collapse) {
+        @include mediaMin($landscape) {
             font-size: 32px;
             // width: 350px;
         }
@@ -73,9 +74,6 @@ header {
     li {
         display: block;
         margin-bottom: 20px;
-    }
-    li:nth-of-type(n) {
-        // margin-left: 20px;
     }
     li:nth-of-type(2n) {
         margin-left: 60px;
@@ -96,26 +94,19 @@ header {
             margin-left: 400px;
         }
     }
-
-    @include mediaMin($collapse) {
-        font-size: 40px;
-    }
 }
 
 // Chekout More BTN
 
 .check-more {
-    // @include transition;
-    position: absolute;
-    left: 50%;
-    display: inline-block;
+    @extend %center;
     bottom: 60px;
+    display: inline-block;
     width: 80px;
     height: 80px;
     border-radius: 50%;
     border: 1px solid white;
     z-index: 2;
-    transform: translateX(-50%);
 
     &:hover {
         @include zoom-header;
@@ -123,8 +114,8 @@ header {
 }
 
 .chevron-down {
-    @include transition;
-    @include abs-middle;
+    @extend %transition;
+    @extend %abs-middle;
     width: 60px;
     height: 60px;
 }

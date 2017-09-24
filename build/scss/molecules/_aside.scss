@@ -59,8 +59,9 @@
     transition: all 0.3s ease;
 
     &:hover {
-        color: $brown;
-        border-color: $primary;
+        color: $offwhite;
+        background-color: $brown;
+        // border-color: $primary;
     }
 }
 

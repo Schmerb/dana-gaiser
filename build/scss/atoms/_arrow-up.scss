@@ -5,7 +5,7 @@
 // // // // // // // // // //
 
 .arrow-up {
-    @include transition;
+    @extend %transition;
     position: absolute;
     top: 5px;
     right: 10px;

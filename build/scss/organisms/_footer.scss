@@ -2,7 +2,7 @@
 /*    FOOTER    (Base / Mobile)                 
 /* * * * * * * * * * * * * * * * * * */
 .main-footer {
-    @include transition;
+    @extend %transition;
     position: relative;
     color: white;
     background: #262626;
@@ -41,14 +41,14 @@
 
 
     a {
-        @include abs-middle;
+        @extend %abs-middle;
         color: white;
         width: 35px;
         height: 35px;
     }
 
     .fa {
-        @include abs-middle;
+        @extend %abs-middle;
         @include transition(0.4s);
     }
 

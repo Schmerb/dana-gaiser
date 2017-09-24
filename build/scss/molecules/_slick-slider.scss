@@ -29,7 +29,7 @@
     z-index: 1000;
 
     &:before {
-        @include transition;
+        @extend %transition;
         font-family: FontAwesome;
         color: $primary;
         font-size: 100px;
@@ -70,7 +70,7 @@
     background-repeat: no-repeat;
 
     &.exam {
-        background-image: url("../../../assets/images/Bosker-Master-Sommelier.jpg");
+        background-image: url("../../../assets/images/Bosker-Master-Sommelier-compressor.jpg");
     }
     &.side-suit {
         background-image: url("../../../assets/images/side-suit.jpg");
@@ -83,7 +83,7 @@
         }
     }
     &.dana {
-        background-image: url("../../../assets/images/dana-uncorked-profile.png");
+        background-image: url("../../../assets/images/dana-uncorked-profile-compressor.png");
         background-position-x: -400px;
         background-size: 300%;
         @include mediaMin($iphone6){
@@ -104,14 +104,14 @@
         }
     }
     &.cast {
-        background-image: url("../../../assets/images/uncorked-cast.jpg");
+        background-image: url("../../../assets/images/uncorked-cast-compressor.jpg");
         background-position-x: -140px;
         @include mediaMin($tablet){
             background-position-x: unset;
         }
     }
     &.cast-table {
-        background-image: url("../../../assets/images/uncorked-cast-table.jpg");
+        background-image: url("../../../assets/images/uncorked-cast-table-compressor.jpg");
         background-position-x: -280px;
         @include mediaMin($iphone6){
             background-position-x: -200px;
@@ -130,7 +130,7 @@
         
         button {
             &:before {
-                @include transition;
+                @extend %transition;
                 font-size: 14px;
             }
 

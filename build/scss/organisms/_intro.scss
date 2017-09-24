@@ -39,7 +39,7 @@
 }
 
 .intro-wrap {
-    @include transition;
+    @extend %transition;
     overflow-y: auto;
     overflow-x: hidden;
     padding: 25px 0;
@@ -60,7 +60,7 @@
 }
 
 .prof-wrap {
-    @include transition;
+    @extend %transition;
     display: block;
     width: 100%;
     max-width: 400px;

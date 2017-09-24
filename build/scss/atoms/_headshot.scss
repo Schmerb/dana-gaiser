@@ -5,7 +5,7 @@
 // // // // // // // // // //
 
 .headshot-wrap {
-    @include transition;
+    @extend %transition;
     @include transform(translateY(-40%));
     position: absolute;
     top: 40%;
