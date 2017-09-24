@@ -23,7 +23,7 @@ const app = express();
 
 
 // CONFIGURE APP
-app.engine('ejs', engine);
+app.engine('ejs', engine); 
 
 app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, '/views'));

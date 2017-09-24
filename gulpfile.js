@@ -78,10 +78,9 @@ const JS_SRC  = 'build/js/**/*.js';
 const JS_DEST = 'public/js/' 
  
 gulp.task('build_es6', () => {
-	gulp.watch([JS_SRC], () => {
-		console.log('building js files');
-		gulp.src(JS_SRC)
-        .pipe(babel({
+	console.log('building js files');
+	return gulp.src(JS_SRC)
+		.pipe(babel({
 			presets: ['env'],
 			plugins: [
 				['transform-runtime', {
@@ -102,17 +101,16 @@ gulp.task('build_es6', () => {
 				min: '.js'
 			}
 		}))
-        .pipe(gulp.dest(JS_DEST))
-	});
+		.pipe(gulp.dest(JS_DEST))
 });
+
+// Detect changes in JS
+gulp.task('watch_es6', () => {
+    gulp.watch(JS_SRC, ['build-es6']);
+})
 
 
 
 // - Reload browser on file save
-gulp.task('default', ['browser-sync', 'watch_scss', 'build_es6'], () => {
-	gulp.watch(["**/*.html", "**/*.css", "**/*.js", "**/**/*.ejs", "*.json", "*.md"], () => {
-		console.log('reloading'); 
-		reload();
-	});
-});
+gulp.task('default', ['browser-sync','build-scss', 'watch_scss', 'build_es6', 'watch_es6']);
 

@@ -32,16 +32,20 @@
     @extend %transition;
     position: relative;
     font-family: 'Tangerine',cursive;
-    font-size: 26px;
+    font-family: 'Allura',cursive;
+    font-size: 22px;
     float: left;
     line-height: $banner;
     padding-left: 20px;
     z-index: 7;
 
     @media screen and (min-width: $iphone6) {
-        font-size: 30px;
+        font-size: 26px;
     }
     @media screen and (min-width: $iphone6P) {
+        font-size: 30px;
+    }
+    @media screen and (min-width: $tablet) {
         font-size: 36px;
     }
 }

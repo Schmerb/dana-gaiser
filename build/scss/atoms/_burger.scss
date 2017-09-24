@@ -38,6 +38,26 @@
     }
 }
 
+// When banner is fixed, burger hover gets different color
+.banner {
+    &.fixed {
+        .burger-btn {
+            &:hover {
+                .burger-icon {
+                    background: $lightbrown;
+                    &:before, &:after {
+                        background: $lightbrown;
+                    }
+
+                    &.open {
+                        background-color: transparent;
+                    }
+                }
+            }
+        }
+    }
+}
+
 // * * * * * * * * * * * * * * * * * * * *
 // burger ICON
 // * * * * * * * * * * * * * * * * * * * *
