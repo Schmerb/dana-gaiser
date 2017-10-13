@@ -106,7 +106,7 @@ gulp.task('build_es6', () => {
 
 // Detect changes in JS
 gulp.task('watch_es6', () => {
-    gulp.watch(JS_SRC, ['build-es6']);
+    gulp.watch(JS_SRC, ['build_es6']);
 })
 
 
