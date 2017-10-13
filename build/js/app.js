@@ -323,6 +323,8 @@ function initSlider() {
         fade: true,
         cssEase: 'linear',
         variableWidth: false,
+        prevArrow: $('.icon-chevron-thin-left'),
+        nextArrow: $('.icon-chevron-thin-right'),
         responsive: [
             {
                 breakpoint: 1240,

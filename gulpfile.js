@@ -21,7 +21,7 @@ const gulp        = require('gulp'),
 gulp.task('browser-sync', ['nodemon'], () =>  {
 	browserSync.init(null, {
 		proxy: "http://localhost:8080",
-        files: ["public/**/*.js", "public/**/*.css", "**/**/*.ejs"],
+        files: ["public/**/*.js", "public/**/*.css", "views/**/*.ejs"],
         browser: "google chrome",
         port: 7000,
 	});
@@ -62,7 +62,7 @@ gulp.task('build-scss', function() {
         .pipe(sass({outputStyle: 'compressed'}).on('error', sass.logError))
         .pipe(minifyCSS())
         .pipe(rename({suffix: '.min'}))
-        .pipe(gulp.dest(SCSS_DEST))
+        .pipe(gulp.dest(SCSS_DEST));
 });
 
 // Detect changes in SCSS
@@ -101,7 +101,7 @@ gulp.task('build_es6', () => {
 				min: '.js'
 			}
 		}))
-		.pipe(gulp.dest(JS_DEST))
+		.pipe(gulp.dest(JS_DEST));
 });
 
 // Detect changes in JS

@@ -23,15 +23,15 @@
     &:hover {
         .burger-icon {
             background: $lightbrown;
-            background: $primary;
+            background: $wine;
             &:after, &:before {
-                background: $primary;
+                background: $wine;
             }
             
             &.open {
                 background-color: transparent;
                 &:after, &:before {
-                    background: $brown;
+                    background: $lightbrown;
                 }
             }
         }
@@ -44,9 +44,9 @@
         .burger-btn {
             &:hover {
                 .burger-icon {
-                    background: $lightbrown;
+                    background: $wine;
                     &:before, &:after {
-                        background: $lightbrown;
+                        background: $wine;
                     }
 
                     &.open {

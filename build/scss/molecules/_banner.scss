@@ -36,14 +36,14 @@
     font-size: 22px;
     float: left;
     line-height: $banner;
-    padding-left: 20px;
+    padding-left: 10px;
     z-index: 7;
 
     @media screen and (min-width: $iphone6) {
-        font-size: 26px;
+        font-size: 24px;
     }
     @media screen and (min-width: $iphone6P) {
-        font-size: 30px;
+        font-size: 28px;
     }
     @media screen and (min-width: $tablet) {
         font-size: 36px;

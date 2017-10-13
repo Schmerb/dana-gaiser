@@ -19,21 +19,48 @@
     }
 }
 
-.slick-next, 
-.slick-prev {
-    @include mediaMax($tablet) {
+.slick-container {
+    position: relative;
+}
+
+.slick-arrow-btn {
+    @extend %middle;
+    background: transparent;
+    border: none;
+    z-index: 10;
+    
+    @include mediaMax(1000px) {
         display: none;
     }
-    height: 100px;
-    width: 100px;
-    z-index: 1000;
+    
+    svg {
+        @extend %transition;
+        cursor: pointer;
+        fill: $primary;
+        opacity: 0.3;
+        &:hover {
+            fill: $brown;
+            opacity: 1;
+        }
+    }
+
+    &.prev {
+        left: 0;
+    }
+    &.next {
+        right: 10px;
+    }
+}
+
+.slick-next, 
+.slick-prev {
 
     &:before {
         @extend %transition;
         font-family: FontAwesome;
         color: $primary;
-        font-size: 100px;
         opacity: 0.3;
+        font-size: 100px;
     }
     &:hover {
         &:before {
@@ -48,6 +75,7 @@
 
     &:before {
         content: '\f105';
+        content: url('/assets/icons/chevron-thin-right.svg');
     }
 }
 
@@ -55,6 +83,7 @@
     left: 40px;
     &:before {
         content: '\f104';
+        content: url('/assets/icons/chevron-thin-left.svg');
     }
 }
 

@@ -6,13 +6,14 @@
     position: relative;
     color: white;
     background: #262626;
+    background-image: radial-gradient(ellipse farthest-corner at 50% 0, rgb(55, 55, 55) 10%, rgba(38,38,38,1) 80%);
+    // background-image: radial-gradient(ellipse farthest-corner at 50% 0, rgba(38,38,38,.9) 10%, rgba(38,38,38,.95) 80%);
     width: 100%;
     min-height: 460px;
 
     @include mediaMin($tablet) {
         min-height: 280px;
     }
-    /* margin-top: 50px; */
 }
 
 
