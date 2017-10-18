@@ -90,7 +90,7 @@
 
 .likes,
 .caption {
-    @include transition(0.8s);
+    @include transition(0.5s);
     color: white;
     font-size: 16px;
 }

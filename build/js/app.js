@@ -450,9 +450,6 @@ function checkSize() {
 
     // make sure that user can scroll in case menu disappears
     checkIfUserCanScroll();
-
-    // set min/max width of forms elements
-    setFormMaxWidth();
 }
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
@@ -462,7 +459,21 @@ function checkScrollPos() {
     $(window).scroll(() => {
         checkScreenWidth();
         fixBanner();
+        revealUpArrow();
     });
+}
+
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+// Checks vertical scroll position and hides/shows up arrow
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+function revealUpArrow() {
+    let winToTop       = $(document).height() - $(window).scrollTop();
+    let distFromBottom = winToTop - $(window).height();
+    if(distFromBottom >= 400) {
+        $(UP_ARROW).addClass('fade');
+    } else {
+        $(UP_ARROW).removeClass('fade');
+    }
 }
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
@@ -477,17 +488,6 @@ function checkScreenWidth() {
     }
 };
 
-// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
-// Sets form min and max width to current width
-// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
-function setFormMaxWidth() {
-    let $tArea = $('textarea[name="message"]');
-    $tArea.css({'width': '', 'height': ''});
-    let maxW = parseInt($(CONTACT_FORM).css('width') - 40);
-    $tArea.css('max-width', maxW + 'px');
-}
-
-
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
 // fixes the banner nav on upward scroll
@@ -500,7 +500,6 @@ function fixBanner() {
     } else {
         $('.banner').removeClass('fixed');
     }
-
 
     // if current yPos is less than previous, scrolling upwards
     if(current <= state.yPos) {

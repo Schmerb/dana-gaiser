@@ -9,7 +9,6 @@
     margin: 50px auto;
     padding: 20px 0;
     z-index: 1;
-
     > h2 {
         color: $primary;
         font-family: 'tangerine', cursive;
@@ -17,13 +16,11 @@
         font-weight: lighter;
         text-align: center;
     }
-
     hr {
         width: 80%;
         margin: 90px auto 0;
         border: 1px solid rgba(0,0,0,0.05);
     }
-
     .somm-hr {
         display: block;
         margin: 60px auto;
@@ -32,8 +29,6 @@
         max-width: 600px;
         opacity: 0.2;
     }
-    
-
     .exp-arrow {
         border-color: transparent;
         bottom: 20px;
@@ -46,7 +41,6 @@
 
 
 
-
 .exp-container {
     position: relative;
     color: $primary;
@@ -54,13 +48,10 @@
     width: 95%;
     max-width: 1600px;
     margin: 0 auto;
-    
     img {
         width: 100%;
         height: 100%;
     }
-    
-
     @include mediaMin($tablet) {
         width: 90%;
         min-width: 680px;
@@ -69,42 +60,42 @@
 
 .work-info {
     position: relative;
-}
+    max-width: 1100px;
+    margin: 0 auto;
 
-.current-work {
-    margin-top: 100px;
-    margin-bottom: 60px;
-
-    @include mediaMin($desktop + 20) {
-        margin-top: 200px;
+    p, ul {
+        @extend %transition;
+        max-width: 600px;
+        margin-left: auto;
+        margin-right: auto;
+        @include mediaMin($desktop) {
+            margin-left: 0;
+            margin-right: 0;
+            max-width: 500px;
+        }
+        @include mediaMin($desktop + 100) {
+            margin-left: 0;
+            margin-right: 0;
+            max-width: 600px;
+        }
     }
 }
-
+.work-img-wrap {
+    @extend %transition;
+    width: 400px;
+    margin: 0 auto;
+    @include mediaMin($desktop) {
+        float: right;
+    }
+}
 
 // places worked list
 .work-list {
     font-family: "Raleway", sans-serif;
     text-align: center;
-    max-width: 600px;
-    margin-top: 80px;
-    
-    @include mediaMin($landscape) {
-        margin: 80px auto 0;
-    }
-
-    @include mediaMin($desktop + 20) {
-        float: right;
-        margin: 20px 20px 80px;
-    }
-
-    @include mediaMin(1400px) {
-        margin-top: -40px;
-    }
-
-
+    margin: 80px 0;
     li {
         margin-bottom: 8px; 
-        
         &:not(:last-of-type):after {
             content: '';
             width: 1px;
@@ -113,81 +104,49 @@
             margin-left: 5px;
             border-left: 1.5px solid rgba(0,0,0,0.7);
         }
-
         &.end-of-row:after {
             border: none;
         }
     }
 }
 
-
+// SOMM experience section
+.somm-info {
+    width: 100%;
+    max-width: 1100px;
+    overflow: auto;
+    margin: 0 auto 50px;
+    p {
+        max-width: 600px;
+    }
+}
 // SOMM medal img container
 .somm-img-wrap {
     @extend %transition;
     width: 300px;
     margin: 0 auto;
-
     @include mediaMin($tablet) {
         float: right;
         margin-left: 15px;
     }
-
-    @include mediaMin($desktop + 20) {
-        float: left;
-    }
-
-    @include mediaMin($desktop + 100) {
-        margin-left: 5%;
-    }
-
-    @include mediaMin($desktop + 200) {
-        min-width: 300px;
-        max-width: 490px;
-        margin-left: 15%;
-        width: 25%;
-    }
-
     img {
-        border: 3px solid palette(brownn, vdark);
+        border: 1px solid palette(brownn, vdark);
     }
 }
-
-.somm-info {
-    width: 100%;
-    overflow: auto;
-    margin-bottom: 50px;
-
-    @include mediaMin($desktop + 20) {
-        p {
-            float: right;
-            margin: 0;
-            margin-top: 30px;
-        }
-    }
-    @include mediaMin(1400px) {
-        p {
-            margin-top: 80px;
-            margin-right: 10px;
-        }
-    }
-}
-
 
 
 .uncorked-info {
     text-align: center;
     margin-top: 50px;
     clear: both;
-
     @include mediaMin($desktop) {
         text-align: left;
     }
-
     > p {
         text-align: left;
+        max-width: 600px;
         margin: 0 auto 30px;
     }
-
     blockquote {
         display: inline-block;
         vertical-align: top;
@@ -196,7 +155,6 @@
             margin-bottom: 100px;
         }
     }
-
     .quotes {
         @include mediaMin($desktop) {
             float: right;
@@ -204,14 +162,13 @@
         }
         @include mediaMin($desktop + 200) {
             font-size: 24px;
-            margin-right: 100px;
+            // margin-right: 100px;
         }
         @include mediaMin($desktop + 400) {
             font-size: 26px;
-            margin-right: 100px;
+            // margin-right: 100px;
         }
     }
-
     h2 {
         font-size: 24px;
         max-width: 600px;
@@ -222,17 +179,14 @@
 }
 
 .clip-wrap {
-    margin-top: 30px;
-    margin-bottom: 100px;
+    max-width: 1100px;
+    margin: 30px auto 100px;
 }
-
-
 .quote-by {
     font-size: 16px;
     margin-left: 25px;
     margin-top: 5px;
 }
-
 // Uncorked image container
 .uncorked-img-wrap {
     width: 100%;

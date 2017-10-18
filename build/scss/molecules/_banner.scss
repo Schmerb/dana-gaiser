@@ -38,15 +38,20 @@
     line-height: $banner;
     padding-left: 10px;
     z-index: 7;
-
-    @media screen and (min-width: $iphone6) {
+    @include mediaMin($iphone6) {
         font-size: 24px;
     }
-    @media screen and (min-width: $iphone6P) {
-        font-size: 28px;
+    @include mediaMin($iphone6P) {
+        font-size: 30px;
     }
-    @media screen and (min-width: $tablet) {
+    @include mediaMin(500px) {
         font-size: 36px;
+    }
+    @include mediaMin($tablet) {
+        font-size: 40px;
+    }
+    @include mediaMin($desktop) {
+        font-size: 44px;
     }
 }
 .title a {
