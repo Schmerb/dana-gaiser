@@ -11,8 +11,8 @@ const express          = require('express'),
       engine           = require('ejs-mate'),
       busboyBodyParser = require('busboy-body-parser');
 
-const router                 = require('./routes');
-const { DATABASE_URL, PORT } = require('./config/database');
+const router                 = require('routes');
+const { DATABASE_URL, PORT } = require('config/database');
 
 
 // Use ES6 promises
@@ -26,7 +26,7 @@ const app = express();
 app.engine('ejs', engine); 
 
 app.set('view engine', 'ejs');
-app.set('views', path.join(__dirname, '/views'));
+app.set('views', path.join(__dirname, 'src/views'));
 
 
 // MIDDLEWARE

@@ -8,8 +8,8 @@ router.use(bodyParser.urlencoded({ extended: true }));
 
 
 // controllers
-const mainController  = require('../controllers/mainController'),
-      instaController = require('../controllers/instaController');
+const mainController  = require('controllers/mainController'),
+      instaController = require('controllers/instaController');
 
 
 router.get('/', mainController.getIndex);

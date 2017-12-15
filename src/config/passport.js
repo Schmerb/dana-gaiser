@@ -3,7 +3,7 @@
 const passport          = require('passport');
 const { BasicStrategy } = require('passport-http');
 
-const { User } = require('../models/user');
+const { User } = require('models/user');
 
 // Strategy for validating user password
 const basicStrategy = new BasicStrategy((username, password, done) => {

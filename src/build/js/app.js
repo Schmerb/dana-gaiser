@@ -63,17 +63,14 @@ const UP_ARROW      = '.arrow-up';
 // returns instagram feed image template
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
 function getImgTemplate(entry) {
-    let caption  = entry.caption ? entry.caption.text : null,
-        created  = entry.created_time,
+    let caption  = entry.caption ? entry.caption : null,
+        created  = entry.date,
         id       = entry.id,
-        link     = entry.link,
-        location = entry.location ? entry.location.name : null,
-        type     = entry.type,
-        url      = entry.images.standard_resolution.url,
+        src      = entry.thumbnail_resources[1].src,
         likes    = entry.likes.count;
     
     return `
-            <a class="insta-link" href="${link}" target="_blank">
+            <a class="insta-link"  target="_blank">
                 <div class="insta-img-wrap">
                     <div class="likes">
                         <i class="fa fa-heart-o" aria-hidden="true"></i>
@@ -81,10 +78,8 @@ function getImgTemplate(entry) {
                     </div>
                     <div class="insta-img" 
                         id="${id}"
-                        data-url="${url}"
+                        data-url="${src}"
                         data-created="${created}"
-                        data-link="${link}"
-                        data-location="${location}"
                         data-likes="${likes}"
                         data-img-id="${id}"
                     ></div>
@@ -197,9 +192,12 @@ function toggleServiceInfo($circle) {
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
 
 function displayInstaImages(feed) {
-    let images = feed.items.map(entry => getImgTemplate(entry));
-    state.images = images;
-    let toScreen = [];
+    console.log(feed);
+    let imageObjs = feed.user.media.nodes,
+        pageInfo  = feed.user.media.page_info,
+        images    = imageObjs.map(entry => getImgTemplate(entry)),
+        toScreen  =  [];
+    state.images  = images;
     for(let i = 0; i < 8; i++) {
         toScreen.push(images[i]);
         console.log('inside');
@@ -267,9 +265,9 @@ function show() {
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
 // Gets instagram feed images
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
-function getInstaFeed(maxId = '') {
+function getInstaFeed() {
     $.ajax({
-        url: `/insta?maxId=${maxId}`,
+        url: '/insta',
         type: 'GET',
         dataType: 'json',
         success: res => {

@@ -21,7 +21,7 @@ const gulp        = require('gulp'),
 gulp.task('browser-sync', ['nodemon'], () =>  {
 	browserSync.init(null, {
 		proxy: "http://localhost:8080",
-        files: ["public/**/*.js", "public/**/*.css", "views/**/*.ejs"],
+        files: ["public/**/*.js", "public/**/*.css", "src/views/**/*.ejs"],
         browser: "google chrome",
         port: 7000,
 	});
@@ -53,7 +53,7 @@ gulp.task('nodemon', (cb) => {
 /////////////////
 // - SCSS/CSS
 /////////////////
-const SCSS_SRC  = 'build/scss/**/*.scss';
+const SCSS_SRC  = 'src/build/scss/**/*.scss';
 const SCSS_DEST = 'public/css';
 
 gulp.task('build-scss', function() {
@@ -74,7 +74,7 @@ gulp.task('watch_scss', () => {
 /////////////////
 // - BABEL
 /////////////////
-const JS_SRC  = 'build/js/**/*.js';
+const JS_SRC  = 'src/build/js/**/*.js';
 const JS_DEST = 'public/js/' 
  
 gulp.task('build_es6', () => {
